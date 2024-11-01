@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Previous head and header sections remain unchanged -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midi-Baccarat Instructions - Training Suite</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Instructions to Midi-Baccarat</h1>
+        <a href="../../index.html" class="back-btn">Back to Dashboard</a>
+        <nav class="section-nav">
+            <ul>
+                <li><a href="#basic-rules">Basic Rules</a></li>
+                <li><a href="#card-values">Card Values</a></li>
+                <li><a href="#table-layout">Table Layout</a></li>
+                <li><a href="#dealing">Dealing</a></li>
+                <li><a href="#third-card">Third Card Rules</a></li>
+                <li><a href="#payouts">Payouts</a></li>
+                <li><a href="#variations">Variations</a></li>
+                <li><a href="#dealer">Dealer Duties</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content">
+        <!-- Previous sections 1-4 remain unchanged -->
+        <section id="basic-rules" class="instruction-section">
+            <h2>1. Basic Rules and Objective</h2>
+            <p>Baccarat is a comparing card game played between two hands: the Player and the Banker. The objective of the game is simple—bet on which hand will have a total closest to 9. There are three possible outcomes for each round: the Player wins, the Banker wins, or it ends in a Tie.</p>
+            <p>At the beginning of each round, players place their bets on either the Player hand, the Banker hand, or the Tie. Once bets are placed, two cards are dealt to both the Player and Banker hands. Depending on the total value of the first two cards dealt, a third card may be drawn for either or both hands based on specific rules.</p>
+            <p>The hand with a total closest to 9 wins the round. If the Player and Banker hands have the same total, the round results in a Tie. The rules governing whether a third card is drawn are automatic, so players do not need to make any decisions beyond placing their initial bets.</p>
+        </section>
+
+        <section id="card-values" class="instruction-section">
+            <h2>2. Card Values and Scoring</h2>
+            <div class="card-values-grid">
+                <div class="value-box">
+                    <h3>Numbered Cards (2-9)</h3>
+                    <p>Worth their face value</p>
+                    <span class="example">Example: 5 = 5 points</span>
+                </div>
+                <div class="value-box">
+                    <h3>10s and Face Cards</h3>
+                    <p>Worth 0 points</p>
+                    <span class="example">10, J, Q, K = 0</span>
+                </div>
+                <div class="value-box">
+                    <h3>Aces</h3>
+                    <p>Worth 1 point</p>
+                    <span class="example">A = 1 point</span>
+                </div>
+            </div>
+            <div class="scoring-examples">
+                <h3>Scoring Examples:</h3>
+                <ul>
+                    <li>7 + 5 = 12 → Worth 2 points (last digit only)</li>
+                    <li>9 + K = 9 points (King is worth 0)</li>
+                    <li>4 + 6 = 10 → Worth 0 points (last digit only)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="table-layout" class="instruction-section">
+            <h2>3. Table Layout and Equipment</h2>
+            <div class="table-sections">
+                <h3>Table Sections</h3>
+                <ul>
+                    <li><strong>Player Area:</strong> Designated spots for Player, Banker, or Tie bets</li>
+                    <li><strong>Banker and Player Boxes:</strong> Central areas where cards are placed</li>
+                    <li><strong>Tie Bet Box:</strong> Area for tie bets alongside main betting areas</li>
+                </ul>
+            </div>
+            <div class="dealer-area">
+                <h3>Dealer's Area</h3>
+                <ul>
+                    <li><strong>Shoe:</strong> Holds multiple decks (6-8) of cards</li>
+                    <li><strong>Chip Rack:</strong> Stores casino chips for payouts</li>
+                    <li><strong>Discard Tray:</strong> Holds used cards</li>
+                    <li><strong>Commission Box:</strong> Tracks 5% commission on Banker wins</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="dealing" class="instruction-section">
+            <h2>4. Dealing Procedures</h2>
+            <div class="dealing-steps">
+                <ol>
+                    <li><strong>Opening the Round:</strong> Players place bets, dealer announces "no more bets"</li>
+                    <li><strong>First Cards:</strong> Two cards dealt to both Player and Banker</li>
+                    <li><strong>Natural Wins:</strong> Check for totals of 8 or 9</li>
+                    <li><strong>Third Card:</strong> Draw according to rules if needed</li>
+                    <li><strong>Determine Winner:</strong> Compare final totals</li>
+                    <li><strong>Payouts:</strong> Process winning bets and collect losing bets</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="third-card" class="instruction-section">
+            <h2>5. Third Card Rules</h2>
+            <div class="third-card-rules">
+                <div class="player-rules">
+                    <h3>Player Hand Rules</h3>
+                    <ul>
+                        <li>Total of 0-5: Draw a third card</li>
+                        <li>Total of 6-7: Stand</li>
+                        <li>Total of 8-9: Natural - no draw</li>
+                    </ul>
+                </div>
+                <div class="banker-rules">
+                    <h3>Banker Hand Rules</h3>
+                    <p class="important-note">When Player DOES NOT take a third card:</p>
+                    <ul>
+                        <li>Total of 0-5: Banker draws a third card</li>
+                        <li>Total of 6-7: Banker stands</li>
+                        <li>Total of 8-9: Natural - no draw</li>
+                    </ul>
+                    <p class="important-note">When Player DOES take a third card:</p>
+                    <ul>
+                        <li>Total of 0-2: Always draw</li>
+                        <li>Total of 3: Draw unless Player's third card is 8</li>
+                        <li>Total of 4: Draw if Player's third card is 2-7</li>
+                        <li>Total of 5: Draw if Player's third card is 4-7</li>
+                        <li>Total of 6: Draw if Player's third card is 6-7</li>
+                        <li>Total of 7: Stand</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Previous sections 6-8 remain unchanged -->
+        <section id="payouts" class="instruction-section">
+            <h2>6. Winning and Payouts</h2>
+            <div class="payout-grid">
+                <div class="payout-box">
+                    <h3>Player Bet</h3>
+                    <p>Pays 1 to 1</p>
+                    <span class="example">Bet $100 → Win $100</span>
+                </div>
+                <div class="payout-box">
+                    <h3>Banker Bet</h3>
+                    <p>Pays 1 to 1 minus 5% commission</p>
+                    <span class="example">Bet $100 → Win $95</span>
+                </div>
+                <div class="payout-box">
+                    <h3>Tie Bet</h3>
+                    <p>Pays 8 to 1 or 9 to 1</p>
+                    <span class="example">Bet $100 → Win $800 or $900</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="variations" class="instruction-section">
+            <h2>7. Common Variations</h2>
+            <div class="variations-grid">
+                <div class="variation-box">
+                    <h3>Punto Banco</h3>
+                    <p>Standard North American version with fixed drawing rules</p>
+                </div>
+                <div class="variation-box">
+                    <h3>Chemin de Fer</h3>
+                    <p>French version where players take turns as Banker</p>
+                </div>
+                <div class="variation-box">
+                    <h3>Mini-Baccarat</h3>
+                    <p>Smaller table, lower limits, faster pace</p>
+                </div>
+                <div class="variation-box">
+                    <h3>EZ Baccarat</h3>
+                    <p>No commission on Banker bets</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="dealer" class="instruction-section">
+            <h2>8. Dealer Responsibilities</h2>
+            <div class="dealer-duties">
+                <ul>
+                    <li>Managing and monitoring bets</li>
+                    <li>Dealing cards according to rules</li>
+                    <li>Calculating and collecting commissions</li>
+                    <li>Processing payouts accurately</li>
+                    <li>Maintaining game etiquette</li>
+                    <li>Following house rules and security protocols</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

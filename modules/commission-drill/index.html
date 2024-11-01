@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commission Drill - Midi-Baccarat Training</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Commission Drill</h1>
+        <a href="../../index.html" class="back-btn">Back to Dashboard</a>
+    </header>
+
+    <main class="content">
+        <section class="commission-info">
+            <h2>Commission Rules</h2>
+            <p>Calculate the 5% commission on Banker wins and determine the final payout amount.</p>
+        </section>
+
+        <section class="practice-area">
+            <h2>Commission Calculator</h2>
+            <div class="calculator">
+                <div class="wager-display">
+                    <h3>Banker Bet Amount:</h3>
+                    <p id="wager-amount" class="amount">$100</p>
+                </div>
+
+                <div class="input-section commission-input">
+                    <label for="commission-answer">Step 1: Calculate 5% Commission:</label>
+                    <div class="input-group">
+                        <span class="currency">$</span>
+                        <input type="number" id="commission-answer" step="0.01" placeholder="Enter commission amount">
+                    </div>
+                    <button id="check-commission" class="btn">Check Commission</button>
+                    <p id="commission-feedback" class="feedback"></p>
+                </div>
+
+                <div class="input-section payout-input">
+                    <label for="payout-answer">Step 2: Calculate Final Payout:</label>
+                    <div class="input-group">
+                        <span class="currency">$</span>
+                        <input type="number" id="payout-answer" step="0.01" placeholder="Enter final payout" disabled>
+                    </div>
+                    <button id="check-payout" class="btn" disabled>Check Payout</button>
+                    <p id="payout-feedback" class="feedback"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="performance">
+            <h2>Performance Tracking</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <h3>Correct</h3>
+                    <span id="correct">0</span>
+                </div>
+                <div class="stat-box">
+                    <h3>Incorrect</h3>
+                    <span id="incorrect">0</span>
+                </div>
+                <div class="stat-box">
+                    <h3>Completed</h3>
+                    <span id="completed">0</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
