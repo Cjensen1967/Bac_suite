@@ -1,0 +1,80 @@
+Baccarat Third Card Training Application
+=====================================
+
+Purpose
+-------
+This application is designed as an interactive training tool for learning and practicing the third card rules in Baccarat. It helps dealers and players master the complex decision-making process involved in determining when to draw a third card in Baccarat games.
+
+Color Scheme
+-----------
+The application features a sophisticated and casino-inspired color palette:
+- Primary Table Color: Rich green (#00693E) - reminiscent of traditional casino tables
+- Accent Color: Gold (#D4AF37) - adds elegance and highlights important elements
+- Dark Gold: (#B4941F) - used for borders and secondary accents
+- Background: Dark gradient from #1a1a1a to #2d2d2d - creates depth and focus
+- Error Feedback: Red (#ff4444) - clearly indicates incorrect decisions
+- Success Feedback: Green (#4CAF50) - confirms correct choices
+- Interface Background: Rich black with transparency for depth
+
+User Interface Layout
+-------------------
+1. Statistics Area (Top)
+   - Tracks correct and incorrect decisions
+   - Counts total hands played
+   - Records number of rule peeks
+   - Card style switcher for visual preference
+
+2. Main Game Area (Center)
+   - Two distinct sections for Player and Banker hands
+   - Three card slots per hand
+   - Cards displayed with high-quality playing card images
+   - Elegant animations for card placement
+
+3. Decision Area (Below Table)
+   - Clear prompt for user action
+   - Four-button grid layout for decision inputs
+   - Immediate visual feedback for choices
+
+Decision Flow
+------------
+1. Initial Hand Presentation
+   - Player and Banker receive their first two cards
+   - Users must evaluate the initial hand totals
+
+2. Decision Making Process
+   - Users must determine if either hand has a natural (8 or 9)
+   - If no natural, users must decide on third card rules:
+     * Player Rules: Draw on totals 0-5, stand on 6-7
+     * Banker Rules: Complex decision tree based on:
+       - Player's stand/draw action
+       - Player's third card value
+       - Banker's current total
+
+3. Learning Support
+   - Comprehensive rules section available for reference
+   - Clear feedback on correct/incorrect decisions
+   - Performance tracking for progress monitoring
+
+Visual Responsiveness
+-------------------
+- Adapts seamlessly to different screen sizes
+- Mobile-friendly interface with adjusted card sizes
+- Maintains readability and usability across devices
+- Elegant animations and transitions for engagement
+
+Training Focus
+------------
+The application emphasizes:
+1. Quick recognition of natural hands
+2. Mastery of Player drawing rules
+3. Understanding complex Banker drawing decisions
+4. Building confidence through repetition
+5. Learning from mistakes with immediate feedback
+
+This training tool is essential for:
+- Casino dealers in training
+- Baccarat players looking to understand the game better
+- Gaming professionals requiring certification
+- Anyone interested in mastering Baccarat rules
+
+The application combines professional casino aesthetics with practical functionality, creating an engaging learning environment for mastering Baccarat's third card rules.

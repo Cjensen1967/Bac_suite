@@ -1,0 +1,434 @@
+:root {
+    --table-green: #00693E;
+    --gold: #D4AF37;
+    --dark-gold: #B4941F;
+    --error-red: #ff4444;
+    --success-green: #4CAF50;
+    --felt-red: #8B0000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 0;
+    padding: 0;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) auto;
+    gap: 8px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7));
+    padding: 8px 15px;
+    border-radius: 0;
+    border-bottom: 2px solid var(--gold);
+    text-align: center;
+    align-items: center;
+}
+
+.counter {
+    font-size: 1.1em;
+    color: var(--gold);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-set-switcher {
+    font-size: 1em;
+    color: var(--gold);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 2px solid var(--dark-gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-set-switcher:hover {
+    background: linear-gradient(145deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    border-color: var(--gold);
+}
+
+.baccarat-table {
+    background: linear-gradient(145deg, var(--felt-red) 0%, #660000 100%);
+    border-radius: 25px;
+    padding: 8px 25px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    border: 3px solid var(--gold);
+    position: relative;
+    margin: 10px;
+}
+
+.player-area, .banker-area {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.player-area h2, .banker-area h2 {
+    color: var(--gold);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-size: 1.6em;
+    margin: 8px 0;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 6px;
+    border-radius: 8px;
+    display: inline-block;
+    min-width: 120px;
+}
+
+.cards-area {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+    perspective: 1000px;
+}
+
+.card-slot {
+    width: 110px;
+    height: 160px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-slot.filled {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.card-slot:hover {
+    transform: translateY(-5px);
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3),
+                0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.decision-area {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95));
+    padding: 8px 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid var(--dark-gold);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+}
+
+.prompt {
+    font-size: 1.2em;
+    margin: 8px 0 10px 0;
+    color: var(--gold);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.options {
+    padding: 4px;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.option-btn {
+    padding: 10px 16px;
+    font-size: 1.1em;
+    background: linear-gradient(145deg, #333 0%, #444 100%);
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    min-height: 42px;
+    position: relative;
+    overflow: hidden;
+}
+
+.option-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.option-btn:hover:not(:disabled):before {
+    left: 100%;
+}
+
+.option-btn:hover:not(:disabled) {
+    background: linear-gradient(145deg, #444 0%, #555 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.option-btn:active:not(:disabled) {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.option-btn:disabled {
+    background: linear-gradient(145deg, #2a2a2a 0%, #333 100%);
+    border-color: #555;
+    color: #666;
+    cursor: default;
+    opacity: 0.7;
+}
+
+.feedback {
+    margin: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 8px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    min-height: 20px;
+}
+
+.feedback.correct {
+    color: var(--success-green);
+    background-color: rgba(76, 175, 80, 0.15);
+    border: 2px solid var(--success-green);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.feedback.incorrect {
+    color: var(--error-red);
+    background-color: rgba(244, 67, 54, 0.15);
+    border: 2px solid var(--error-red);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.rules-section, .acknowledgments-section {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95));
+    border-radius: 15px;
+    margin: 10px;
+    border: 2px solid var(--dark-gold);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.rules-title, .acknowledgments-title {
+    color: var(--gold);
+    font-weight: bold;
+    padding: 8px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), transparent);
+}
+
+.rules-title:hover, .acknowledgments-title:hover {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+}
+
+.rules-title::-webkit-details-marker, .acknowledgments-title::-webkit-details-marker {
+    display: none;
+}
+
+.rules-title::before, .acknowledgments-title::before {
+    content: '▶';
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    font-size: 0.8em;
+}
+
+details[open] .rules-title::before, details[open] .acknowledgments-title::before {
+    transform: rotate(90deg);
+}
+
+.rules-content, .acknowledgments-content {
+    padding: 8px 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.rules-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rules-list li {
+    color: white;
+    margin-bottom: 6px;
+    line-height: 1.5;
+    padding: 3px 0;
+}
+
+.rules-list li strong {
+    color: var(--gold);
+}
+
+.rules-list li.indented {
+    margin-left: 25px;
+    position: relative;
+}
+
+.rules-list li.indented::before {
+    content: '•';
+    position: absolute;
+    left: -15px;
+    color: var(--gold);
+}
+
+.acknowledgments-text {
+    color: white;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .stats {
+        padding: 6px 12px;
+        gap: 8px;
+        grid-template-columns: repeat(4, 1fr) auto;
+    }
+
+    .card-slot {
+        width: 80px;
+        height: 116px;
+    }
+
+    .option-btn {
+        padding: 8px;
+        font-size: 1em;
+    }
+
+    .prompt {
+        font-size: 1.1em;
+        margin: 6px 0 8px 0;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    .rules-title, .acknowledgments-title {
+        font-size: 1em;
+    }
+
+    .rules-list li {
+        font-size: 0.9em;
+    }
+
+    .card-set-switcher {
+        font-size: 0.9em;
+        padding: 4px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats {
+        padding: 4px 8px;
+        gap: 6px;
+        grid-template-columns: repeat(2, 1fr) auto;
+    }
+
+    .counter {
+        font-size: 0.9em;
+        padding: 4px 8px;
+    }
+
+    .card-slot {
+        width: 60px;
+        height: 87px;
+    }
+
+    .option-btn {
+        padding: 6px;
+        font-size: 0.9em;
+        min-height: 38px;
+    }
+
+    .prompt {
+        font-size: 1em;
+        margin: 6px 0 8px 0;
+        padding: 6px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        min-width: 100px;
+        padding: 6px;
+    }
+
+    .rules-title, .acknowledgments-title {
+        font-size: 0.9em;
+    }
+
+    .rules-list li {
+        font-size: 0.85em;
+    }
+
+    .card-set-switcher {
+        font-size: 0.85em;
+        padding: 4px 8px;
+    }
+}

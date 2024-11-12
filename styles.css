@@ -93,6 +93,16 @@ header h1 {
     transform: translateY(-1px);
 }
 
+.btn-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.btn-container .btn {
+    flex: 1;
+}
+
 footer {
     text-align: center;
     padding: 1rem;
