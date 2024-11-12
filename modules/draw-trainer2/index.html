@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baccarat Interactive Draw Trainer</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Baccarat Interactive Draw Trainer</h1>
+            <div class="score-display">
+                Correct: <span id="correct-count">0</span>
+                Incorrect: <span id="wrong-count">0</span>
+                Success %: <span id="success-rate">0%</span>
+                Peeks: <span id="rules-peek-count">0</span>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="banker-hand">
+                <h2>Banker</h2>
+                <div class="cards">
+                    <div class="card-slot draw-placeholder" id="banker-card-3">
+                        <span class="draw-text">Draw</span>
+                    </div>
+                    <div class="card-slot" id="banker-card-1"></div>
+                    <div class="card-slot" id="banker-card-2"></div>
+                </div>
+            </div>
+
+            <div class="feedback" id="feedback"></div>
+
+            <div class="player-hand">
+                <h2>Player</h2>
+                <div class="cards">
+                    <div class="card-slot" id="player-card-1"></div>
+                    <div class="card-slot" id="player-card-2"></div>
+                    <div class="card-slot draw-placeholder" id="player-card-3">
+                        <span class="draw-text">Draw</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="decision-buttons">
+                <div class="top-buttons">
+                    <button id="banker-win">Banker Win</button>
+                    <button id="player-win">Player Win</button>
+                </div>
+                <button id="tie" class="tie-button">Tie</button>
+            </div>
+        </div>
+
+        <details class="rules-dropdown" id="rules-dropdown">
+            <summary>Drawing Rules</summary>
+            <div class="rules-content">
+                <div class="rule-section">
+                    <strong>Player Rules:</strong>
+                    <ul>
+                        <li>0-5: Draw</li>
+                        <li>6-7: Stand</li>
+                        <li>8-9: Natural</li>
+                    </ul>
+                </div>
+                <div class="rule-section">
+                    <strong>Banker Rules:</strong>
+                    <ul>
+                        <li>If Player stands, follow Player drawing rules</li>
+                        <li>0-2: Always Draw</li>
+                        <li>3: Draw unless Player's 3rd is 8</li>
+                        <li>4: Draw on Player's 3rd 2-7</li>
+                        <li>5: Draw on Player's 3rd 4-7</li>
+                        <li>6: Draw on Player's 3rd 6-7</li>
+                        <li>7: Stand</li>
+                        <li>8-9: Natural</li>
+                    </ul>
+                </div>
+            </div>
+        </details>
+
+        <button class="style-toggle">Toggle Card Style</button>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/cards.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
