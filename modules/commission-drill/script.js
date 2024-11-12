@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         payoutInput.disabled = true;
         checkCommissionBtn.disabled = false;
         checkPayoutBtn.disabled = true;
+        checkPayoutBtn.textContent = 'Check Payout';
         
         // Clear feedback
         commissionFeedback.textContent = '';
@@ -102,6 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Check payout answer
     checkPayoutBtn.addEventListener('click', function() {
+        // If button says "Proceed", start new round
+        if (checkPayoutBtn.textContent === 'Proceed') {
+            newRound();
+            return;
+        }
+
         const userAnswer = parseFloat(payoutInput.value);
         
         if (isNaN(userAnswer)) {
@@ -111,13 +118,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (userAnswer === currentPayout) {
-            payoutFeedback.textContent = 'Correct! Starting new round...';
+            payoutFeedback.textContent = 'Correct!';
             payoutFeedback.className = 'feedback correct';
             stats.correct++;
             stats.completed++;
             
-            // Start new round after a short delay
-            setTimeout(newRound, 1500);
+            // Change button to Proceed
+            checkPayoutBtn.textContent = 'Proceed';
+            payoutInput.disabled = true;
         } else {
             payoutFeedback.textContent = 'Incorrect. Try again!';
             payoutFeedback.className = 'feedback incorrect';
