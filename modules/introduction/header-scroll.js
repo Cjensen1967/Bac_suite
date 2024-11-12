@@ -1,6 +1,6 @@
 let lastScrollTop = 0;
 const header = document.querySelector('header');
-const scrollThreshold = 50; // Minimum scroll amount before showing/hiding
+const scrollThreshold = 50;
 let ticking = false;
 
 function handleScroll() {
