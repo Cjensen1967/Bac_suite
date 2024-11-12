@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const payoutInput = document.getElementById('payout-answer');
     const checkCommissionBtn = document.getElementById('check-commission');
     const checkPayoutBtn = document.getElementById('check-payout');
-    const commissionFeedback = document.getElementById('commission-feedback');
-    const payoutFeedback = document.getElementById('payout-feedback');
     const correctDisplay = document.getElementById('correct');
     const incorrectDisplay = document.getElementById('incorrect');
     const completedDisplay = document.getElementById('completed');
@@ -53,14 +51,11 @@ document.addEventListener('DOMContentLoaded', function() {
         commissionInput.disabled = false;
         payoutInput.disabled = true;
         checkCommissionBtn.disabled = false;
+        checkCommissionBtn.textContent = 'Check Commission';
+        checkCommissionBtn.className = 'btn';
         checkPayoutBtn.disabled = true;
         checkPayoutBtn.textContent = 'Check Payout';
-        
-        // Clear feedback
-        commissionFeedback.textContent = '';
-        commissionFeedback.className = 'feedback';
-        payoutFeedback.textContent = '';
-        payoutFeedback.className = 'feedback';
+        checkPayoutBtn.className = 'btn';
     }
 
     // Update stats displays
@@ -70,19 +65,36 @@ document.addEventListener('DOMContentLoaded', function() {
         completedDisplay.textContent = stats.completed;
     }
 
+    // Add click handlers to clear inputs when clicked
+    commissionInput.addEventListener('click', function() {
+        if (!this.disabled) {
+            this.value = '';
+            checkCommissionBtn.textContent = 'Check Commission';
+            checkCommissionBtn.className = 'btn';
+        }
+    });
+
+    payoutInput.addEventListener('click', function() {
+        if (!this.disabled) {
+            this.value = '';
+            checkPayoutBtn.textContent = 'Check Payout';
+            checkPayoutBtn.className = 'btn';
+        }
+    });
+
     // Check commission answer
     checkCommissionBtn.addEventListener('click', function() {
         const userAnswer = parseFloat(commissionInput.value);
         
         if (isNaN(userAnswer)) {
-            commissionFeedback.textContent = 'Please enter a valid number';
-            commissionFeedback.className = 'feedback incorrect';
+            checkCommissionBtn.textContent = 'Please enter a valid number';
+            checkCommissionBtn.className = 'btn incorrect';
             return;
         }
 
         if (userAnswer === currentCommission) {
-            commissionFeedback.textContent = 'Correct! Now calculate the final payout.';
-            commissionFeedback.className = 'feedback correct';
+            checkCommissionBtn.textContent = 'Correct! Now calculate the payout.';
+            checkCommissionBtn.className = 'btn correct';
             stats.correct++;
             
             // Enable payout input
@@ -93,8 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
             commissionInput.disabled = true;
             checkCommissionBtn.disabled = true;
         } else {
-            commissionFeedback.textContent = 'Incorrect. Try again!';
-            commissionFeedback.className = 'feedback incorrect';
+            checkCommissionBtn.textContent = 'Incorrect. Try again!';
+            checkCommissionBtn.className = 'btn incorrect';
             stats.incorrect++;
         }
         
@@ -112,23 +124,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const userAnswer = parseFloat(payoutInput.value);
         
         if (isNaN(userAnswer)) {
-            payoutFeedback.textContent = 'Please enter a valid number';
-            payoutFeedback.className = 'feedback incorrect';
+            checkPayoutBtn.textContent = 'Please enter a valid number';
+            checkPayoutBtn.className = 'btn incorrect';
             return;
         }
 
         if (userAnswer === currentPayout) {
-            payoutFeedback.textContent = 'Correct!';
-            payoutFeedback.className = 'feedback correct';
+            checkPayoutBtn.textContent = 'Correct!';
+            checkPayoutBtn.className = 'btn correct';
             stats.correct++;
             stats.completed++;
             
-            // Change button to Proceed
-            checkPayoutBtn.textContent = 'Proceed';
+            // Change button to Proceed after a short delay
+            setTimeout(() => {
+                checkPayoutBtn.textContent = 'Proceed';
+                checkPayoutBtn.className = 'btn';
+            }, 1500);
+            
             payoutInput.disabled = true;
         } else {
-            payoutFeedback.textContent = 'Incorrect. Try again!';
-            payoutFeedback.className = 'feedback incorrect';
+            checkPayoutBtn.textContent = 'Incorrect. Try again!';
+            checkPayoutBtn.className = 'btn incorrect';
             stats.incorrect++;
         }
         
