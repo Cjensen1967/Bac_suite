@@ -90,21 +90,9 @@ class CardManager {
         return hand.filter(card => card !== null).length;
     }
 
-    // Check if a card is already in play
-    isCardInPlay(newCard, playerHand, bankerHand) {
-        const allCards = [...playerHand, ...bankerHand].filter(card => card !== null);
-        return allCards.some(card => 
-            card.value === newCard.value && card.suit === newCard.suit
-        );
-    }
-
-    // Generate a unique random card not in play
+    // Generate a random card (no duplicate checking since baccarat uses multiple decks)
     generateUniqueCard(playerHand, bankerHand) {
-        let newCard;
-        do {
-            newCard = this.createRandomCard();
-        } while (this.isCardInPlay(newCard, playerHand, bankerHand));
-        return newCard;
+        return this.createRandomCard();
     }
 
     // Refresh all displayed cards (useful after style toggle)

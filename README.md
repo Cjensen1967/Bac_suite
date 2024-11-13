@@ -4,7 +4,7 @@
 The **Baccarat Training Suite** is a modular training application designed to teach and practice various aspects of Midi-Baccarat dealing and gameplay. The suite is structured into independent modules, each focusing on a specific aspect of Baccarat, from understanding the game's rules to mastering card handling and commission calculations.
 
 ## Project Goal
-The goal of this project is to create a user-friendly, educational tool that organizes Baccarat training into self-contained modules. Each module functions as a separate page, allowing users to practice specific skills without requiring shared dependencies across modules.
+The goal of this project is to create a user-friendly, educational tool that organizes Baccarat training into self-contained modules. Each module functions as a separate page without shared dependencies, making it easy to modify or add new modules without affecting others. This modular design also allows the entire suite to run locally from a folder on most modern web browsers, requiring no special setup or installation.
 
 ## Modules
 
@@ -15,16 +15,16 @@ Located in `/modules/instructions`, this module provides comprehensive instructi
 Split into two progressive levels for optimal learning:
 
 #### Level 1 (`/modules/draw-trainer1`)
-- Basic third card rule training
-- Simple, focused interface
-- Performance tracking (correct/incorrect/total hands)
+- Basic third card rule training with guided step-by-step learning
+- Button-based interface that guides users through each decision point
+- Simple performance tracking (correct/incorrect/total hands)
+- Quick-reference rules display
 - Two card face design options
-- Includes quick-reference rules display
 
 #### Level 2 (`/modules/draw-trainer2`)
-- Advanced interactive draw training
-- More detailed success rate tracking
-- Enhanced UI with draw placeholders
+- Advanced interactive training simulating real gameplay
+- Interactive card slots requiring direct application of rules
+- Enhanced success rate tracking and rules peek counting
 - Modular code structure with separated JavaScript files
 - Toggle between card styles
 - Comprehensive rules reference
