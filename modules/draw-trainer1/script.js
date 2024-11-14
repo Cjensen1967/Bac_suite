@@ -12,7 +12,7 @@ class BaccaratTrainer {
         this.initializeButtons();
         this.initializeRulesSection();
         this.updateCardSetIndicator();
-        this.dealNewHand(false); // Changed to false since we don't want to count initial hand
+        this.dealNewHand(false);
     }
 
     loadStats() {
@@ -82,7 +82,30 @@ class BaccaratTrainer {
     switchCardSet() {
         this.currentCardSet = this.currentCardSet === 'assets' ? 'assets2' : 'assets';
         this.updateCardSetIndicator();
-        this.dealNewHand(false);
+        this.updateCardImages(); // Just update images instead of dealing new hand
+    }
+
+    updateCardImages() {
+        // Update image paths for all cards while keeping their values
+        const updateCardPath = (card) => {
+            if (card) {
+                card.img = `${this.currentCardSet}/${card.suit}${card.value}.png`;
+            }
+            return card;
+        };
+
+        // Update paths for all cards
+        this.currentHand.player = this.currentHand.player.map(updateCardPath);
+        this.currentHand.banker = this.currentHand.banker.map(updateCardPath);
+        if (this.currentHand.playerThirdCard) {
+            this.currentHand.playerThirdCard = updateCardPath(this.currentHand.playerThirdCard);
+        }
+        if (this.currentHand.bankerThirdCard) {
+            this.currentHand.bankerThirdCard = updateCardPath(this.currentHand.bankerThirdCard);
+        }
+
+        // Redisplay cards with new images
+        this.displayCards();
     }
 
     handleButtonClick(btnId) {
