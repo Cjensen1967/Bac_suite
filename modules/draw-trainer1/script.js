@@ -13,7 +13,7 @@ class BaccaratTrainer {
             bankerThirdCard: null
         };
         this.currentStep = 'natural';
-        this.currentCardSet = 'assets'; // Track current card set
+        this.currentCardSet = 'assets';
         this.initializeButtons();
         this.initializeRulesSection();
         this.updateCardSetIndicator();
@@ -21,8 +21,8 @@ class BaccaratTrainer {
     }
 
     initializeButtons() {
-        const buttons = ['btn-1', 'btn-2', 'btn-3', 'btn-4'];
-        buttons.forEach(btnId => {
+        // Initialize decision buttons
+        ['btn-1', 'btn-2', 'btn-3', 'btn-4'].forEach(btnId => {
             const btn = document.getElementById(btnId);
             btn.onclick = () => this.handleButtonClick(btnId);
         });
@@ -36,10 +36,7 @@ class BaccaratTrainer {
 
     initializeRulesSection() {
         const rulesSection = document.getElementById('rules-section');
-        // Ensure rules start collapsed
         rulesSection.removeAttribute('open');
-        
-        // Track when rules are viewed
         rulesSection.addEventListener('toggle', (event) => {
             if (rulesSection.open) {
                 this.stats.peeks++;
@@ -48,7 +45,6 @@ class BaccaratTrainer {
         });
     }
 
-    // New method to update the card set indicator
     updateCardSetIndicator() {
         const indicator = document.getElementById('current-card-set');
         if (indicator) {
@@ -56,11 +52,9 @@ class BaccaratTrainer {
         }
     }
 
-    // Updated method to switch card sets
     switchCardSet() {
         this.currentCardSet = this.currentCardSet === 'assets' ? 'assets2' : 'assets';
         this.updateCardSetIndicator();
-        // Redeal hand to show new card faces
         this.dealNewHand(false);
     }
 
@@ -106,38 +100,7 @@ class BaccaratTrainer {
         }
     }
 
-    clearFeedback() {
-        const feedback = document.getElementById('feedback');
-        feedback.textContent = '';
-        feedback.className = 'feedback';
-    }
-
-    updateButtonStates(activeButtons, labels) {
-        // First disable all buttons during transition
-        ['btn-1', 'btn-2', 'btn-3', 'btn-4'].forEach(btnId => {
-            const btn = document.getElementById(btnId);
-            btn.disabled = true;
-        });
-
-        // Clear feedback when updating buttons for new step
-        this.clearFeedback();
-
-        // Then update states after a short delay
-        setTimeout(() => {
-            ['btn-1', 'btn-2', 'btn-3', 'btn-4'].forEach((btnId, index) => {
-                const btn = document.getElementById(btnId);
-                btn.disabled = !activeButtons.includes(btnId);
-                btn.textContent = labels[index] || '';
-                // Keep button visible but disabled if no label
-                if (!labels[index]) {
-                    btn.disabled = true;
-                }
-            });
-        }, 100);
-    }
-
     dealNewHand(isNewHand = true) {
-        // Collapse rules at start of new hand
         const rulesSection = document.getElementById('rules-section');
         rulesSection.removeAttribute('open');
 
@@ -225,6 +188,17 @@ class BaccaratTrainer {
         );
     }
 
+    updateButtonStates(activeButtons, labels) {
+        ['btn-1', 'btn-2', 'btn-3', 'btn-4'].forEach((btnId, index) => {
+            const btn = document.getElementById(btnId);
+            btn.disabled = !activeButtons.includes(btnId);
+            btn.textContent = labels[index] || '';
+            if (!labels[index]) {
+                btn.disabled = true;
+            }
+        });
+    }
+
     checkNatural(choice) {
         const playerValue = this.calculateHandValue(this.currentHand.player);
         const bankerValue = this.calculateHandValue(this.currentHand.banker);
@@ -255,7 +229,7 @@ class BaccaratTrainer {
 
     showPlayerDrawDecision() {
         const prompt = document.getElementById('prompt');
-        prompt.textContent = "Should the Player draw a third card?";
+        prompt.textContent = "Should Player draw a third card?";
         this.updateButtonStates(
             ['btn-1', 'btn-2'],
             ['DRAW', 'STAND', '', '']
@@ -271,9 +245,7 @@ class BaccaratTrainer {
             this.stats.correct++;
             if (shouldDraw) {
                 this.currentHand.playerThirdCard = this.drawRandomCard();
-                const slot = document.getElementById('player-card-3');
-                slot.innerHTML = `<img src="${this.currentHand.playerThirdCard.img}" alt="${this.currentHand.playerThirdCard.value} of ${this.currentHand.playerThirdCard.suit}">`;
-                slot.classList.add('filled');
+                this.displayCards();
             }
             this.currentStep = 'bankerDraw';
             setTimeout(() => this.showBankerDrawDecision(), 1500);
@@ -286,7 +258,7 @@ class BaccaratTrainer {
 
     showBankerDrawDecision() {
         const prompt = document.getElementById('prompt');
-        prompt.textContent = "Should the Banker draw a third card?";
+        prompt.textContent = "Should Banker draw a third card?";
         this.updateButtonStates(
             ['btn-1', 'btn-2'],
             ['DRAW', 'STAND', '', '']
@@ -317,10 +289,9 @@ class BaccaratTrainer {
             this.stats.correct++;
             if (shouldDraw) {
                 this.currentHand.bankerThirdCard = this.drawRandomCard();
-                const slot = document.getElementById('banker-card-3');
-                slot.innerHTML = `<img src="${this.currentHand.bankerThirdCard.img}" alt="${this.currentHand.bankerThirdCard.value} of ${this.currentHand.bankerThirdCard.suit}">`;
-                slot.classList.add('filled');
+                this.displayCards();
             }
+            
             this.currentStep = 'final';
             setTimeout(() => this.showFinalDecision(), 1500);
         } else {
