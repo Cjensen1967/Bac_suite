@@ -1,11 +1,6 @@
 class BaccaratTrainer {
     constructor() {
-        this.stats = {
-            correct: 0,
-            incorrect: 0,
-            hands: 0,
-            peeks: 0
-        };
+        this.stats = this.loadStats();
         this.currentHand = {
             player: [],
             banker: [],
@@ -17,7 +12,32 @@ class BaccaratTrainer {
         this.initializeButtons();
         this.initializeRulesSection();
         this.updateCardSetIndicator();
-        this.dealNewHand(true);
+        this.dealNewHand(false); // Changed to false since we don't want to count initial hand
+    }
+
+    loadStats() {
+        const savedStats = localStorage.getItem('baccaratTrainerStats');
+        return savedStats ? JSON.parse(savedStats) : {
+            correct: 0,
+            incorrect: 0,
+            hands: 0,
+            peeks: 0
+        };
+    }
+
+    saveStats() {
+        localStorage.setItem('baccaratTrainerStats', JSON.stringify(this.stats));
+    }
+
+    resetStats() {
+        this.stats = {
+            correct: 0,
+            incorrect: 0,
+            hands: 0,
+            peeks: 0
+        };
+        this.saveStats();
+        this.updateStats();
     }
 
     initializeButtons() {
@@ -32,6 +52,12 @@ class BaccaratTrainer {
         if (switcher) {
             switcher.onclick = () => this.switchCardSet();
         }
+
+        // Initialize reset scores button
+        const resetBtn = document.getElementById('reset-scores');
+        if (resetBtn) {
+            resetBtn.onclick = () => this.resetStats();
+        }
     }
 
     initializeRulesSection() {
@@ -41,6 +67,7 @@ class BaccaratTrainer {
             if (rulesSection.open) {
                 this.stats.peeks++;
                 this.updateStats();
+                this.saveStats();
             }
         });
     }
@@ -100,7 +127,7 @@ class BaccaratTrainer {
         }
     }
 
-    dealNewHand(isNewHand = true) {
+    dealNewHand() {
         const rulesSection = document.getElementById('rules-section');
         rulesSection.removeAttribute('open');
 
@@ -111,9 +138,6 @@ class BaccaratTrainer {
             bankerThirdCard: null
         };
         this.currentStep = 'natural';
-        if (isNewHand) {
-            this.stats.hands++;
-        }
         this.updateStats();
         this.displayCards();
         this.showNaturalDecision();
@@ -215,7 +239,9 @@ class BaccaratTrainer {
             this.showFeedback(true, "Correct!");
             this.stats.correct++;
             if (isNatural) {
-                setTimeout(() => this.dealNewHand(true), 1500);
+                // Only increment hands counter for natural wins when correct
+                this.stats.hands++;
+                setTimeout(() => this.dealNewHand(), 1500);
             } else {
                 this.currentStep = 'playerDraw';
                 setTimeout(() => this.showPlayerDrawDecision(), 1500);
@@ -225,6 +251,7 @@ class BaccaratTrainer {
             this.stats.incorrect++;
         }
         this.updateStats();
+        this.saveStats();
     }
 
     showPlayerDrawDecision() {
@@ -254,6 +281,7 @@ class BaccaratTrainer {
             this.stats.incorrect++;
         }
         this.updateStats();
+        this.saveStats();
     }
 
     showBankerDrawDecision() {
@@ -299,6 +327,7 @@ class BaccaratTrainer {
             this.stats.incorrect++;
         }
         this.updateStats();
+        this.saveStats();
     }
 
     showFinalDecision() {
@@ -322,12 +351,15 @@ class BaccaratTrainer {
         if (choice === correctOutcome) {
             this.showFeedback(true, `Correct! Final scores - Player: ${playerFinal}, Banker: ${bankerFinal}`);
             this.stats.correct++;
-            setTimeout(() => this.dealNewHand(true), 2000);
+            // Increment hands counter only when final outcome is correct
+            this.stats.hands++;
+            setTimeout(() => this.dealNewHand(), 2000);
         } else {
             this.showFeedback(false, "Incorrect. Try again!");
             this.stats.incorrect++;
         }
         this.updateStats();
+        this.saveStats();
     }
 
     calculateFinalValue(side) {
