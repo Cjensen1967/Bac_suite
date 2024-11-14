@@ -1,41 +1,9 @@
-:root {
-    /* Primary Colors */
-    --rust-red: #8B2D1E;
-    --golden-ochre: #C2874E;
-    --weathered-brown: #5A4634;
-    --casino-green: #006B3E;
-    --casino-dark-green: #004d2d;
-
-    /* Secondary Colors */
-    --moss-green: #7A8C6D;
-    --muted-ivory: #F2E8D5;
-
-    /* Neutral Colors */
-    --soft-gray: #4A4A4A;
-    --warm-beige: #E6D5B1;
-
-    /* Accent Colors */
-    --burnt-umber: #96583D;
-    --slate-gray: #4E4E4E;
-
-    /* Background Colors */
-    --bg-section: #F7F0E6;
-    --bg-highlight: rgba(194, 135, 78, 0.1);
-
-    /* Spacing */
-    --space-1: 0.25rem;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
-    --space-4: 1rem;
-    --space-6: 1.5rem;
-}
-
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background: var(--weathered-brown);
-    color: var(--soft-gray);
+    background: #5A4634;
+    color: #4A4A4A;
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
@@ -45,7 +13,7 @@ body {
 .game-container {
     width: 100%;
     max-width: 900px;
-    background-color: var(--bg-section);
+    background-color: #F7F0E6;
     border-radius: 8px;
     padding: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -54,10 +22,10 @@ body {
 .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr) auto;
-    gap: var(--space-2);
-    background: var(--rust-red);
-    padding: var(--space-2) var(--space-4);
-    border-bottom: 2px solid var(--golden-ochre);
+    gap: 0.5rem;
+    background: #8B2D1E;
+    padding: 0.5rem 1rem;
+    border-bottom: 2px solid #C2874E;
     text-align: center;
     align-items: center;
     border-radius: 8px 8px 0 0;
@@ -65,52 +33,52 @@ body {
 
 .counter {
     font-size: 0.875rem;
-    color: var(--muted-ivory);
+    color: #F2E8D5;
     font-weight: 500;
-    padding: var(--space-1) var(--space-2);
+    padding: 0.25rem 0.5rem;
     border-radius: 4px;
     background: rgba(0, 0, 0, 0.2);
 }
 
 .card-set-switcher {
     font-size: 0.875rem;
-    color: var(--muted-ivory);
-    background: var(--burnt-umber);
-    padding: var(--space-1) var(--space-2);
+    color: #F2E8D5;
+    background: #96583D;
+    padding: 0.25rem 0.5rem;
     border-radius: 4px;
-    border: 1px solid var(--golden-ochre);
+    border: 1px solid #C2874E;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .card-set-switcher:hover {
-    background: var(--golden-ochre);
+    background: #C2874E;
 }
 
 .baccarat-table {
-    background: var(--casino-green);
+    background: #006B3E;
     background-image: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%),
                       repeating-linear-gradient(45deg, transparent 0%, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px);
     border-radius: 16px;
-    padding: var(--space-4) var(--space-4);
+    padding: 1rem;
     box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3),
                 0 2px 6px rgba(0, 0, 0, 0.2);
-    border: 2px solid var(--casino-dark-green);
+    border: 2px solid #004d2d;
     position: relative;
-    margin: var(--space-4);
+    margin: 1rem;
 }
 
 .player-area, .banker-area {
-    margin: var(--space-2) 0;
+    margin: 0.5rem 0;
     text-align: center;
 }
 
 .player-area h2, .banker-area h2 {
-    color: var(--muted-ivory);
+    color: #F2E8D5;
     font-size: 1.125rem;
-    margin: var(--space-2) 0;
+    margin: 0.5rem 0;
     background: rgba(0, 0, 0, 0.2);
-    padding: var(--space-2);
+    padding: 0.5rem;
     border-radius: 8px;
     display: inline-block;
     min-width: 100px;
@@ -120,8 +88,8 @@ body {
 .cards-area {
     display: flex;
     justify-content: center;
-    gap: var(--space-3);
-    margin: var(--space-2) 0;
+    gap: 0.75rem;
+    margin: 0.5rem 0;
 }
 
 .card-slot {
@@ -156,42 +124,42 @@ body {
 }
 
 .decision-area {
-    background: var(--rust-red);
-    padding: var(--space-3);
+    background: #8B2D1E;
+    padding: 0.75rem;
     border-radius: 8px;
-    margin: var(--space-4);
-    border: 1px solid var(--golden-ochre);
+    margin: 1rem;
+    border: 1px solid #C2874E;
 }
 
 .prompt {
     font-size: 1.125rem;
-    color: var(--muted-ivory);
+    color: #F2E8D5;
     text-align: center;
     font-weight: 500;
-    padding: var(--space-2);
+    padding: 0.5rem;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
-    margin-bottom: var(--space-2);
+    margin-bottom: 0.5rem;
 }
 
 .options {
-    padding: var(--space-2);
+    padding: 0.5rem;
 }
 
 .button-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2);
+    gap: 0.5rem;
     max-width: 500px;
     margin: 0 auto;
 }
 
 .option-btn {
-    padding: var(--space-2);
+    padding: 0.5rem;
     font-size: 0.875rem;
-    background: var(--burnt-umber);
-    color: var(--muted-ivory);
-    border: 1px solid var(--golden-ochre);
+    background: #96583D;
+    color: #F2E8D5;
+    border: 1px solid #C2874E;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -202,14 +170,14 @@ body {
 }
 
 .option-btn:hover:not(:disabled) {
-    background: var(--golden-ochre);
+    background: #C2874E;
     transform: translateY(-1px);
 }
 
 .option-btn:disabled {
-    background: var(--slate-gray);
-    border-color: var(--soft-gray);
-    color: var(--warm-beige);
+    background: #4E4E4E;
+    border-color: #4A4A4A;
+    color: #E6D5B1;
     opacity: 0.7;
 }
 
@@ -217,36 +185,36 @@ body {
     text-align: center;
     font-weight: 500;
     font-size: 1rem;
-    padding: var(--space-2);
+    padding: 0.5rem;
     border-radius: 8px;
     transition: all 0.3s ease;
     min-height: 20px;
-    color: var(--muted-ivory);
-    margin-top: var(--space-2);
+    color: #F2E8D5;
+    margin-top: 0.5rem;
 }
 
 .feedback.correct {
-    background-color: var(--moss-green);
-    border: 1px solid var(--muted-ivory);
+    background-color: #7A8C6D;
+    border: 1px solid #F2E8D5;
 }
 
 .feedback.incorrect {
-    background-color: var(--rust-red);
-    border: 1px solid var(--muted-ivory);
+    background-color: #8B2D1E;
+    border: 1px solid #F2E8D5;
 }
 
 .rules-section {
-    background: var(--rust-red);
+    background: #8B2D1E;
     border-radius: 8px;
-    margin: var(--space-4);
-    border: 1px solid var(--golden-ochre);
+    margin: 1rem;
+    border: 1px solid #C2874E;
     overflow: hidden;
 }
 
 .rules-title {
-    color: var(--muted-ivory);
+    color: #F2E8D5;
     font-weight: 500;
-    padding: var(--space-2) var(--space-4);
+    padding: 0.5rem 1rem;
     font-size: 0.875rem;
     cursor: pointer;
     list-style: none;
@@ -266,7 +234,7 @@ body {
 
 .rules-title::before {
     content: '▶';
-    margin-right: var(--space-2);
+    margin-right: 0.5rem;
     transition: transform 0.3s ease;
     display: inline-block;
     font-size: 0.8em;
@@ -277,8 +245,8 @@ details[open] .rules-title::before {
 }
 
 .rules-content {
-    padding: var(--space-2) var(--space-4);
-    border-top: 1px solid var(--golden-ochre);
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #C2874E;
 }
 
 .rules-list {
@@ -288,50 +256,50 @@ details[open] .rules-title::before {
 }
 
 .rules-list li {
-    color: var(--muted-ivory);
-    margin-bottom: var(--space-1);
+    color: #F2E8D5;
+    margin-bottom: 0.25rem;
     line-height: 1.4;
-    padding: calc(var(--space-1) / 2) 0;
+    padding: 0.125rem 0;
     font-size: 0.875rem;
 }
 
 .rules-list li strong {
-    color: var(--golden-ochre);
+    color: #C2874E;
 }
 
 .rules-list li.indented {
-    margin-left: var(--space-4);
+    margin-left: 1rem;
     position: relative;
 }
 
 .rules-list li.indented::before {
     content: '•';
     position: absolute;
-    left: calc(var(--space-3) * -1);
-    color: var(--golden-ochre);
+    left: -0.75rem;
+    color: #C2874E;
 }
 
 .back-section {
     text-align: center;
-    padding: var(--space-4);
+    padding: 1rem;
 }
 
 .back-btn {
     display: inline-block;
-    padding: var(--space-3) var(--space-6);
-    background-color: var(--rust-red);
-    color: var(--muted-ivory);
+    padding: 0.75rem 1.5rem;
+    background-color: #8B2D1E;
+    color: #F2E8D5;
     text-decoration: none;
     border-radius: 8px;
     transition: all 0.3s ease;
-    border: 1px solid var(--golden-ochre);
+    border: 1px solid #C2874E;
     font-size: 1rem;
     font-weight: 500;
     min-width: 200px;
 }
 
 .back-btn:hover {
-    background-color: var(--burnt-umber);
+    background-color: #96583D;
     transform: translateY(-1px);
 }
 
@@ -353,11 +321,11 @@ details[open] .rules-title::before {
     }
 
     .stats {
-        padding: var(--space-3) var(--space-6);
+        padding: 0.75rem 1.5rem;
     }
 
     .baccarat-table {
-        padding: var(--space-3) var(--space-6);
+        padding: 0.75rem 1.5rem;
     }
 
     .player-area h2, .banker-area h2 {
