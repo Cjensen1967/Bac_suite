@@ -6,8 +6,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000;
-    color: #DAA520;
+    background-color: #5A4634;
+    color: #F2E8D5;
     line-height: 1.6;
 }
 
@@ -20,16 +20,20 @@ body {
 header {
     text-align: center;
     margin-bottom: 10px;
+    background: #8B2D1E;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #C2874E;
 }
 
 h1 {
     margin-bottom: 8px;
     font-size: 1.4em;
-    color: #DAA520;
+    color: #F2E8D5;
 }
 
 .score-display {
-    color: #DAA520;
+    color: #F2E8D5;
     padding: 3px 10px;
     font-size: 0.9em;
     display: flex;
@@ -37,11 +41,14 @@ h1 {
     gap: 15px;
     flex-wrap: nowrap;
     white-space: nowrap;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
 .score-display span {
     font-weight: bold;
     margin-left: 5px;
+    color: #C2874E;
 }
 
 .game-area {
@@ -49,12 +56,16 @@ h1 {
     justify-content: space-around;
     margin-bottom: 25px;
     gap: 10px;
-    background-color: #1a472a;
-    border-radius: 25px;
+    background: #006B3E;
+    background-image: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%),
+                      repeating-linear-gradient(45deg, transparent 0%, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px);
+    border-radius: 16px;
     padding: 20px;
-    border: 2px solid #DAA520;
+    border: 2px solid #004d2d;
     position: relative;
     min-height: 300px;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3),
+                0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .player-hand, .banker-hand {
@@ -69,7 +80,11 @@ h1 {
     transform: rotate(180deg);
     margin-bottom: 10px;
     font-size: 1.4em;
-    color: #ffffff;
+    color: #F2E8D5;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 8px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .cards {
@@ -81,35 +96,39 @@ h1 {
 .card-slot {
     width: 100px;
     height: 145px;
-    background-color: #ffffff;
-    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     position: relative;
     flex-shrink: 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .card-slot img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    border-radius: 8px;
 }
 
 .draw-placeholder {
-    border: 2px dashed #ffffff;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     background: transparent;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .draw-placeholder:hover {
-    border-color: #DAA520;
+    border-color: #C2874E;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .draw-text {
-    color: #ffffff;
+    color: #F2E8D5;
     font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .feedback {
@@ -120,7 +139,7 @@ h1 {
     text-align: center;
     padding: 10px 20px;
     font-size: 1.2em;
-    color: #ffffff;
+    color: #F2E8D5;
     z-index: 9999;
     pointer-events: none;
     opacity: 0;
@@ -128,7 +147,7 @@ h1 {
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 8px;
     white-space: normal;
-    border: 1px solid rgba(218, 165, 32, 0.5);
+    border: 1px solid #C2874E;
     max-width: 90%;
 }
 
@@ -141,6 +160,9 @@ h1 {
     margin: 0 auto;
     padding: 15px;
     max-width: 800px;
+    background: #8B2D1E;
+    border-radius: 8px;
+    border: 1px solid #C2874E;
 }
 
 .decision-buttons {
@@ -170,17 +192,20 @@ h1 {
 button {
     padding: 15px 20px;
     font-size: 1.1em;
-    background-color: #333333;
-    color: #DAA520;
-    border: 2px solid #DAA520;
+    background-color: #96583D;
+    color: #F2E8D5;
+    border: 1px solid #C2874E;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
     min-height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 button:hover {
-    background-color: #444444;
+    background-color: #C2874E;
+    transform: translateY(-1px);
 }
 
 button:active {
@@ -188,18 +213,19 @@ button:active {
 }
 
 button:disabled {
-    background-color: #222222;
-    color: #666666;
-    border-color: #666666;
+    background-color: #4E4E4E;
+    color: #E6D5B1;
+    border-color: #4A4A4A;
     cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .rules-dropdown {
     margin: 15px auto 0 auto;
     max-width: 600px;
-    background-color: #000000;
-    border: 2px solid #DAA520;
-    border-radius: 15px;
+    background-color: #8B2D1E;
+    border: 1px solid #C2874E;
+    border-radius: 8px;
     font-size: 0.9em;
     overflow: hidden;
 }
@@ -214,16 +240,17 @@ button:disabled {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #333333;
+    background: rgba(0, 0, 0, 0.2);
+    color: #F2E8D5;
 }
 
 .rules-dropdown summary:hover {
-    background-color: #444444;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .rules-content {
     padding: 15px;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .rule-section {
@@ -237,7 +264,7 @@ button:disabled {
 .rule-section strong {
     display: block;
     margin-bottom: 4px;
-    color: #DAA520;
+    color: #C2874E;
 }
 
 .rule-section ul {
@@ -248,7 +275,7 @@ button:disabled {
 .rule-section li {
     font-size: 0.85em;
     line-height: 1.4;
-    color: #ffffff;
+    color: #F2E8D5;
 }
 
 .style-toggle {
@@ -257,16 +284,17 @@ button:disabled {
     padding: 8px 15px;
     font-size: 0.9em;
     min-height: 35px;
-    background-color: #333333;
-    color: #DAA520;
-    border: 1px solid #DAA520;
+    background-color: #96583D;
+    color: #F2E8D5;
+    border: 1px solid #C2874E;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .style-toggle:hover {
-    background-color: #444444;
+    background-color: #C2874E;
+    transform: translateY(-1px);
 }
 
 .style-toggle:active {
@@ -274,11 +302,11 @@ button:disabled {
 }
 
 .correct {
-    color: #00ff00;
+    color: #7A8C6D;
 }
 
 .incorrect {
-    color: #ff0000;
+    color: #8B2D1E;
 }
 
 @media (max-width: 768px) {
@@ -306,6 +334,7 @@ button:disabled {
         align-items: center;
         margin-bottom: 15px;
         min-height: 400px;
+        padding: 15px;
     }
 
     .player-hand, .banker-hand {
