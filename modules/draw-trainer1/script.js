@@ -82,11 +82,10 @@ class BaccaratTrainer {
     switchCardSet() {
         this.currentCardSet = this.currentCardSet === 'assets' ? 'assets2' : 'assets';
         this.updateCardSetIndicator();
-        this.updateCardImages(); // Just update images instead of dealing new hand
+        this.updateCardImages();
     }
 
     updateCardImages() {
-        // Update image paths for all cards while keeping their values
         const updateCardPath = (card) => {
             if (card) {
                 card.img = `${this.currentCardSet}/${card.suit}${card.value}.png`;
@@ -94,7 +93,6 @@ class BaccaratTrainer {
             return card;
         };
 
-        // Update paths for all cards
         this.currentHand.player = this.currentHand.player.map(updateCardPath);
         this.currentHand.banker = this.currentHand.banker.map(updateCardPath);
         if (this.currentHand.playerThirdCard) {
@@ -104,7 +102,6 @@ class BaccaratTrainer {
             this.currentHand.bankerThirdCard = updateCardPath(this.currentHand.bankerThirdCard);
         }
 
-        // Redisplay cards with new images
         this.displayCards();
     }
 
@@ -112,8 +109,8 @@ class BaccaratTrainer {
         switch(this.currentStep) {
             case 'natural':
                 const naturalChoices = {
-                    'btn-1': 'player',
                     'btn-2': 'banker',
+                    'btn-1': 'player',
                     'btn-3': 'tie',
                     'btn-4': 'none'
                 };
@@ -133,14 +130,14 @@ class BaccaratTrainer {
                     'btn-1': true,  // Draw
                     'btn-2': false  // Stand
                 };
-                if (btnId in bankerChoices) {
+                if (btnId in drawChoices) {
                     this.checkBankerDraw(bankerChoices[btnId]);
                 }
                 break;
             case 'final':
                 const finalChoices = {
-                    'btn-1': 'player',
                     'btn-2': 'banker',
+                    'btn-1': 'player',
                     'btn-3': 'tie'
                 };
                 if (btnId in finalChoices) {
@@ -230,8 +227,8 @@ class BaccaratTrainer {
         const prompt = document.getElementById('prompt');
         prompt.textContent = "Is there a natural win?";
         this.updateButtonStates(
-            ['btn-1', 'btn-2', 'btn-3', 'btn-4'],
-            ['PLAYER WIN', 'BANKER WIN', 'TIE', 'NO NATURALS']
+            ['btn-2', 'btn-1', 'btn-3', 'btn-4'],
+            ['BANKER WIN', 'PLAYER WIN', 'TIE', 'NO NATURALS']
         );
     }
 
@@ -262,7 +259,6 @@ class BaccaratTrainer {
             this.showFeedback(true, "Correct!");
             this.stats.correct++;
             if (isNatural) {
-                // Only increment hands counter for natural wins when correct
                 this.stats.hands++;
                 setTimeout(() => this.dealNewHand(), 1500);
             } else {
@@ -357,8 +353,8 @@ class BaccaratTrainer {
         const prompt = document.getElementById('prompt');
         prompt.textContent = "What is the final outcome?";
         this.updateButtonStates(
-            ['btn-1', 'btn-2', 'btn-3'],
-            ['PLAYER WIN', 'BANKER WIN', 'TIE', '']
+            ['btn-2', 'btn-1', 'btn-3'],
+            ['BANKER WIN', 'PLAYER WIN', 'TIE', '']
         );
     }
 
@@ -374,7 +370,6 @@ class BaccaratTrainer {
         if (choice === correctOutcome) {
             this.showFeedback(true, `Correct! Final scores - Player: ${playerFinal}, Banker: ${bankerFinal}`);
             this.stats.correct++;
-            // Increment hands counter only when final outcome is correct
             this.stats.hands++;
             setTimeout(() => this.dealNewHand(), 2000);
         } else {
