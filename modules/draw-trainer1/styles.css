@@ -157,7 +157,7 @@ body {
 .option-btn {
     padding: 0.5rem;
     font-size: 0.875rem;
-    background: #96583D;
+    background-color: #96583D;
     color: #F2E8D5;
     border: 1px solid #C2874E;
     border-radius: 8px;
@@ -167,18 +167,29 @@ body {
     letter-spacing: 1px;
     font-weight: 500;
     min-height: 38px;
+    outline: none;
 }
 
 .option-btn:hover:not(:disabled) {
-    background: #C2874E;
+    background-color: #C2874E;
     transform: translateY(-1px);
 }
 
+.option-btn:active:not(:disabled) {
+    background-color: #96583D;
+    transform: translateY(0);
+}
+
+.option-btn:focus:not(:active):not(:disabled) {
+    background-color: #96583D;
+}
+
 .option-btn:disabled {
-    background: #4E4E4E;
+    background-color: #4E4E4E;
     border-color: #4A4A4A;
     color: #E6D5B1;
     opacity: 0.7;
+    transform: none;
 }
 
 .feedback {
