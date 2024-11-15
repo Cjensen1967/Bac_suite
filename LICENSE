@@ -1,0 +1,50 @@
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
+
+In jurisdictions that recognize copyright laws, the author or authors
+of this software dedicate any and all copyright interest in the
+software to the public domain. We make this dedication for the benefit
+of the public at large and to the detriment of our heirs and
+successors. We intend this dedication to be an overt act of
+relinquishment in perpetuity of all present and future rights to this
+software under copyright law.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+
+For more information, please refer to <https://unlicense.org>
+
+--------------------------------------------------------------------------------
+Third Party Assets Attribution:
+
+The software includes two sets of playing card assets with different licenses:
+
+1. Playing card assets in modules/draw-trainer1/assets/ and modules/draw-trainer2/assets/:
+   Created by DaveKun
+   Source: https://opengameart.org/content/52-set-cards-and-background-any-game
+   License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+   
+   These assets require attribution under the CC BY 4.0 license. When using or
+   distributing these assets, you must give appropriate credit to DaveKun,
+   provide a link to the license, and indicate if changes were made.
+
+2. Playing card assets in modules/draw-trainer1/assets2/ and modules/draw-trainer2/assets2/:
+   Created by SirDraco65
+   Source: https://opengameart.org/content/generic-playing-cards
+   License: CC0 (Public Domain)
+   
+   These assets are in the public domain and can be used without attribution.
+
+Please note that while the software code is released under The Unlicense,
+the card assets maintain their respective licenses as specified above.
+Users must comply with the appropriate license terms when using or
+distributing these assets.
