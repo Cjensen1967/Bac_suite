@@ -98,8 +98,8 @@ class BaccaratTrainer {
 
     handleButtonClick(btnId) {
         const drawChoices = {
-            'btn-1': true,  // Draw
-            'btn-2': false  // Stand
+            'btn-1': false,  // Stand
+            'btn-2': true   // Draw
         };
 
         switch(this.currentStep) {
@@ -266,7 +266,7 @@ class BaccaratTrainer {
         prompt.textContent = "Should Player draw a third card?";
         this.updateButtonStates(
             ['btn-1', 'btn-2'],
-            ['DRAW', 'STAND', '', '']
+            ['STAND', 'DRAW', '', '']
         );
     }
 
@@ -296,7 +296,7 @@ class BaccaratTrainer {
         prompt.textContent = "Should Banker draw a third card?";
         this.updateButtonStates(
             ['btn-1', 'btn-2'],
-            ['DRAW', 'STAND', '', '']
+            ['STAND', 'DRAW', '', '']
         );
     }
 
