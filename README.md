@@ -4,14 +4,25 @@
 The **Baccarat Training Suite** is a modular training application designed to teach and practice various aspects of Midi-Baccarat dealing and gameplay. The suite is structured into independent modules, each focusing on a specific aspect of Baccarat, from understanding the game's rules to mastering card handling and commission calculations.
 
 ## Project Goal
-The goal of this project is to create a user-friendly, educational tool that organizes Baccarat training into self-contained modules. Each module functions as a separate page without shared dependencies, making it easy to modify or add new modules without affecting others. This modular design also allows the entire suite to run locally from a folder on most modern web browsers, requiring no special setup or installation.
+The goal of this project is to create a user-friendly, educational tool that organizes Baccarat training into self-contained modules. Each module functions as a separate page without shared dependencies, making it easy to modify or add new modules without affecting others. This modular design allows the entire suite to run locally from a folder on most modern web browsers, requiring no special setup or installation.
 
 ## Modules
 
-### 1. Rules Guide
-Located in `/modules/instructions`, this module provides comprehensive instructions on Baccarat gameplay mechanics and rules.
+### 1. Introduction (`/modules/introduction`)
+Learn about the history and variations of Baccarat through this informational module. Covers:
+- Historical context
+- Game variations
+- Cultural significance
+- Industry trends
 
-### 2. Third Card Draw Training
+### 2. Rules Guide (`/modules/instructions`)
+Comprehensive instructions on Baccarat gameplay mechanics and rules, including:
+- Basic game overview
+- Gameplay mechanics
+- Detailed rules
+- Common situations
+
+### 3. Third Card Draw Training
 Split into two progressive levels for optimal learning:
 
 #### Level 1 (`/modules/draw-trainer1`)
@@ -24,66 +35,74 @@ Split into two progressive levels for optimal learning:
 #### Level 2 (`/modules/draw-trainer2`)
 - Advanced interactive training simulating real gameplay
 - Interactive card slots requiring direct application of rules
-- Enhanced success rate tracking and rules peek counting
-- Modular code structure with separated JavaScript files
+- Enhanced success rate tracking
 - Toggle between card styles
 - Comprehensive rules reference
 
-### 3. Commission Calculator (`/modules/commission-drill`)
-Practice calculating commissions quickly and accurately with this dedicated training module.
+### 4. Commission Calculator (`/modules/commission-drill`)
+Practice calculating commissions quickly and accurately with:
+- Real-time calculation practice
+- Instant feedback
+- Performance tracking
+- Common amount references
 
-### 4. Additional Information (`/modules/introduction`)
-Learn about the history and variations of Baccarat through this informational module.
-
-## Structure and Folder Organization
-Each module is organized in a way that promotes independence and modularity:
-
+## Project Structure
 ```
-/baccarat-training-suite
-├── index.html                # Main dashboard linking to each module
-├── styles.css               # Styles for the main dashboard
-├── script.js               # JavaScript for the main dashboard
-├── /modules                # Folder containing all individual modules
-│   ├── /instructions
-│   │   ├── index.html     # HTML for rules guide
-│   │   ├── styles.css     # Module-specific styles
-│   │   └── script.js      # Module-specific JavaScript
-│   ├── /draw-trainer1
-│   │   ├── index.html     # Level 1 draw trainer
-│   │   ├── styles.css     # Styles for level 1
-│   │   ├── script.js      # JavaScript for level 1
-│   │   └── /assets        # Card images for level 1
-│   ├── /draw-trainer2
-│   │   ├── index.html     # Level 2 draw trainer
-│   │   ├── /css          # Styles for level 2
-│   │   ├── /js           # JavaScript modules for level 2
-│   │   └── /assets       # Card images for level 2
-│   ├── /commission-drill
-│   │   ├── index.html     # Commission calculator
-│   │   ├── styles.css     # Calculator styles
-│   │   └── script.js      # Calculator logic
-│   └── /introduction
-│       ├── index.html     # Additional information
-│       ├── styles.css     # Information page styles
-│       └── script.js      # Information page logic
+baccarat-training-suite/
+├── index.html                # Main dashboard
+├── styles.css               # Dashboard styles
+├── script.js               # Dashboard logic
+├── STYLE_GUIDE.md          # Design system documentation
+├── README.md               # Project documentation
+└── /modules                # Individual training modules
+    ├── /introduction      # Game history and context
+    ├── /instructions      # Rules and procedures
+    ├── /draw-trainer1     # Basic third card rules
+    ├── /draw-trainer2     # Advanced dealing practice
+    └── /commission-drill  # Commission calculations
 ```
+
+## Module Documentation
+Each module contains its own README.md file with detailed information about:
+- Module-specific features
+- Usage instructions
+- Content sections
+- Implementation details
+- Tips for effective use
+
+## Design System
+The project follows a consistent design system documented in STYLE_GUIDE.md, ensuring:
+- Consistent visual appearance
+- Responsive design
+- Accessibility standards
+- Performance optimization
 
 ## Guidelines
 
 1. **Modular Independence**:  
-   Each module is contained in its own folder within `/modules`. Every module has its own HTML, CSS, and JavaScript files to ensure that there is no file sharing between modules. This design allows each module to function independently, making updates and debugging easier.
+   Each module is self-contained with its own HTML, CSS, and JavaScript files, ensuring no cross-module dependencies.
 
-2. **No Cross-Module File Sharing**:  
-   Files within a module should not depend on or interact with files in other module folders. This helps maintain the modular structure and prevents unintended dependencies.
+2. **Consistent Design**:  
+   All modules follow the design system specified in STYLE_GUIDE.md for a cohesive user experience.
 
-3. **Module-Specific Resources**:  
-   Each module maintains its own assets and styles within its directory structure. This ensures complete modularity and prevents conflicts between different modules' resources.
+3. **Documentation**:  
+   Each module maintains its own documentation while adhering to the project's overall structure.
 
-4. **Naming Conventions**:  
-   For consistency, each module's primary HTML file should be named `index.html`. CSS and JavaScript files should follow the module's specific needs, whether as single files or organized in subdirectories for more complex modules.
+4. **Asset Management**:  
+   Module-specific resources are kept within their respective directories to maintain modularity.
 
-5. **Dashboard as Central Hub**:  
-   The main `index.html` file in the root directory acts as the dashboard, linking to each module page and allowing users to navigate between modules.
+5. **Accessibility**:  
+   All modules follow accessibility best practices as outlined in the style guide.
 
-## Future Development
-Following this structure will ensure that future modules can be added easily without disrupting existing ones. Each new module can follow the same folder setup, maintaining the project's modular integrity and simplicity.
+## Getting Started
+1. Download or clone the repository
+2. Open index.html in a modern web browser
+3. Navigate through modules using the dashboard
+4. No installation or setup required
+
+## License
+The project includes third-party assets with their own licenses:
+- Card assets Style 1: CC BY 4.0 (by DaveKun)
+- Card assets Style 2: CC0 (Public Domain, by SirDraco65)
+
+See individual module LICENSE files for specific details.

@@ -1,38 +1,17 @@
-# Baccarat Third Card Rules Trainer
+# Baccarat Third Card Rules Trainer (Level 1)
 
 An interactive web application to help dealers and players learn and practice Baccarat's third card drawing rules. This trainer provides real-time feedback and tracks performance while learning these complex rules.
 
 ## Features
 
 - Interactive card display with realistic playing cards
-- Two different card face designs (press 's' to switch)
+- Two different card face designs (toggle with button)
 - Real-time feedback on decisions
 - Performance tracking (correct/incorrect/total hands)
 - Clear display of Banker's third card drawing rules
 - Responsive design that works on all devices
 - No installation required - runs in any modern web browser
-
-## Demo
-
-You can try the live demo here: [Baccarat Third Card Rules Trainer](https://cjensen1967.github.io/baccarat-third-card-rules/)
-
-## Getting Started
-
-### Local Setup
-
-1. Clone the repository:
-```bash
-git clone https://github.com/Cjensen1967/baccarat-third-card-rules.git
-```
-
-2. Open the project:
-```bash
-cd baccarat-third-card-rules
-```
-
-3. Open `index.html` in your web browser to start using the trainer.
-
-No server or build process is required - the application runs entirely in the browser using vanilla JavaScript.
+- Step-by-step guidance for learning the rules
 
 ## How to Use
 
@@ -42,45 +21,30 @@ No server or build process is required - the application runs entirely in the br
 4. Finally, determine if the Banker should draw based on their total and the Player's third card (if any)
 5. Get immediate feedback on your decisions
 6. Track your progress with the score counter
-7. Press 's' key to switch between different card face designs
+7. Use the toggle button to switch between different card face designs
 
 ## Rules Reference
 
-The Banker's third card rules are displayed below the game area for quick reference. These rules show:
-- When Banker must draw with different hand totals
-- How the Player's third card affects Banker's drawing decision
-- Natural win conditions
+### Player Rules
+- 0-5: Draw
+- 6-7: Stand
+- 8-9: Natural (initial two cards only)
 
-## Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/YourFeature`)
-3. Commit your changes (`git commit -m 'Add some feature'`)
-4. Push to the branch (`git push origin feature/YourFeature`)
-5. Open a Pull Request
-
-### Areas for Improvement
-
-- Add sound effects for card dealing and feedback
-- Include additional statistics and tracking
-- Add a practice mode focusing on specific scenarios
-- Add keyboard shortcuts for common actions
-- Add multi-language support
-- Add more card face designs
+### Banker Rules
+- If Player stands, follow Player drawing rules
+- 0-2: Always Draw
+- 3: Draw unless Player's 3rd is 8
+- 4: Draw on Player's 3rd 2-7
+- 5: Draw on Player's 3rd 4-7
+- 6: Draw on Player's 3rd 6-7
+- 7: Stand
+- 8-9: Natural (initial two cards only)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This module is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
 - Beautiful card designs by DaveKun (Style 1) and SirDraco65 (Style 2) from OpenGameArt.org
-- Development assisted by Claude Sonnet AI - proving that with AI assistance, anyone can bring their ideas to life regardless of coding experience
 - Inspired by the need for better tools to learn Baccarat dealing rules
-- Thanks to all contributors who help improve this trainer
-
-## Contact
-
-If you have any questions or suggestions, please open an issue in the GitHub repository.
