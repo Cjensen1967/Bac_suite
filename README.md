@@ -5,6 +5,9 @@
 ## Project Overview
 The **Baccarat Training Suite** is a modular training application designed to teach and practice various aspects of Midi-Baccarat dealing and gameplay. The suite is structured into independent modules, each focusing on a specific aspect of Baccarat, from understanding the game's rules to mastering card handling and commission calculations.
 
+## Live Demo
+Try the application here: [Baccarat Training Suite Live Demo](https://cjensen1967.github.io/Bac_suite/)
+
 ## Project Goal
 The goal of this project is to create a user-friendly, educational tool that organizes Baccarat training into self-contained modules. Each module functions as a separate page without shared dependencies, making it easy to modify or add new modules without affecting others. This modular design allows the entire suite to run locally from a folder on most modern web browsers, requiring no special setup or installation.
 
@@ -97,26 +100,19 @@ The project follows a consistent design system documented in STYLE_GUIDE.md, ens
    All modules follow accessibility best practices as outlined in the style guide.
 
 ## Getting Started
-1. Download or clone the repository
-2. Open index.html in a modern web browser
-3. Navigate through modules using the dashboard
-4. No installation or setup required
+1. Download or clone the repository.
+2. Open `index.html` in a modern web browser.
+3. Navigate through modules using the dashboard.
+4. No installation or setup required.
 
 ## License
 This project's source code is released under The Unlicense, making it freely available for any use without restrictions. However, the project includes third-party assets that maintain their own separate licenses.
 
-### Setting Up License on GitHub
-When hosting this project on GitHub:
-
-1. The LICENSE file in the root directory will be automatically detected
-2. Verify the license is correctly recognized in your repository:
-   - Go to repository Settings
-   - Under "General"
-   - Scroll to "About"
-   - The license should show as "Unlicense"
-   - If not, click edit and select "Unlicense" from the dropdown
-
-This ensures GitHub properly identifies and displays the project's license status.
+### Important License Notes
+- While the project's code is unrestricted under The Unlicense, the card assets maintain their original licenses.
+- Users must comply with the CC BY 4.0 license terms when using or distributing the Style 1 cards.
+- The Style 2 cards can be freely used without attribution.
+- See the LICENSE file for complete license texts and details.
 
 ## Credits and Attribution
 
@@ -136,20 +132,12 @@ This project includes two sets of playing card assets with different licensing r
    - Source: [OpenGameArt.org](https://opengameart.org/content/generic-playing-cards)
    - License: CC0 (Public Domain)
    - Location: `/modules/draw-trainer1/assets2/` and `/modules/draw-trainer2/assets2/`
-   - No attribution required - these assets are in the public domain
+   - No attribution required - these assets are in the public domain.
 
-### Important License Notes
-
-- While the project's code is unrestricted under The Unlicense, the card assets maintain their original licenses.
-- Users must comply with the CC BY 4.0 license terms when using or distributing the Style 1 cards.
-- The Style 2 cards can be freely used without attribution.
-- See the LICENSE file for complete license texts and details.
-
-## Customizing Card Assets
-
+### Customizing Card Assets
 You can customize the application with your own card designs. To maintain compatibility:
 
-### Technical Requirements
+#### Technical Requirements
 1. **File Naming Convention**:
    - Files must follow the pattern: `[suit][value].png`
    - Suits: `clubs`, `diamonds`, `hearts`, `spades`
@@ -161,15 +149,15 @@ You can customize the application with your own card designs. To maintain compat
    - Resolution: Match the existing card dimensions for consistent display
    - File Location: Place in either `assets/` or `assets2/` directory within the respective module
 
-### Implementation Steps
-1. Create your card set following the naming convention
-2. Place the complete set in either the `assets/` or `assets2/` directory
-3. The toggle button will automatically work with your new designs
+#### Implementation Steps
+1. Create your card set following the naming convention.
+2. Place the complete set in either the `assets/` or `assets2/` directory.
+3. The toggle button will automatically work with your new designs.
 
-### Best Practices
-- Maintain consistent card dimensions across the entire set
-- Ensure clear visibility of suit and value
-- Test the display at different screen sizes
-- Consider adding attribution information to the Credits section if desired
+#### Best Practices
+- Maintain consistent card dimensions across the entire set.
+- Ensure clear visibility of suit and value.
+- Test the display at different screen sizes.
+- Consider adding attribution information to the Credits section if desired.
 
 The application will automatically work with any card set that follows these specifications, allowing for easy customization while maintaining functionality.
