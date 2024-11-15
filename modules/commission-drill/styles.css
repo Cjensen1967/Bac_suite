@@ -21,14 +21,17 @@
     --slate-gray: #4E4E4E;
 
     /* Status Colors */
-    --success-color: #7A8C6D;
-    --error-color: #C25D47;
+    --success-color: #5B8A4B;
+    --success-bg: #EDF7EA;
+    --error-color: #B4432C;
+    --error-bg: #FDEAE7;
 
     /* Background Colors */
     --bg-section: #F7F0E6;
     --bg-highlight: rgba(194, 135, 78, 0.1);
     --bg-input: #FFFFFF;
     --bg-disabled: #E8E8E8;
+    --bg-wager: #FFFFFF;
 
     /* Typography */
     --font-primary: 'Arial', sans-serif;
@@ -101,7 +104,7 @@ header h1 {
 
 .content {
     max-width: 800px;
-    margin: var(--space-4) auto;
+    margin: 0 auto;
     padding: 0 var(--space-3);
 }
 
@@ -115,40 +118,49 @@ section {
 }
 
 .calculator {
-    display: grid;
-    gap: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
 }
 
 .wager-display {
-    padding: var(--space-4);
+    position: sticky;
+    top: 60px; /* Adjust based on header height */
+    z-index: 100;
+    padding: var(--space-3);
     text-align: center;
     border-left: 4px solid var(--golden-ochre);
-    background-color: var(--bg-highlight);
+    background-color: var(--bg-wager);
     border-radius: 4px;
+    margin: -1px -1px var(--space-3) -1px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--warm-beige);
 }
 
 .wager-display h3 {
     margin: 0;
     color: var(--rust-red);
     font-family: var(--font-primary);
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     font-weight: var(--font-semibold);
 }
 
 .amount {
-    font-size: var(--text-4xl);
+    font-size: var(--text-2xl);
     font-weight: var(--font-bold);
     color: var(--burnt-umber);
-    margin: var(--space-2) 0;
+    margin: var(--space-1) 0;
     font-family: var(--font-primary);
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .input-section {
-    padding: var(--space-4);
+    padding: var(--space-3);
     border-left: 4px solid var(--golden-ochre);
     background-color: var(--bg-highlight);
     border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
 }
 
 .input-section label {
@@ -156,22 +168,23 @@ section {
     margin-bottom: var(--space-2);
     color: var(--rust-red);
     font-weight: var(--font-semibold);
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-family: var(--font-primary);
 }
 
 .input-group {
     display: flex;
     align-items: center;
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-2);
     background-color: var(--bg-input);
     border-radius: 4px;
     padding: var(--space-1) var(--space-2);
     border: 1px solid var(--golden-ochre);
+    transition: all 0.3s ease;
 }
 
 .currency {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     color: var(--burnt-umber);
     font-family: var(--font-primary);
     font-weight: var(--font-semibold);
@@ -180,7 +193,7 @@ section {
 
 input[type="number"] {
     padding: var(--space-2);
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     width: 100%;
     border: none;
     background: transparent;
@@ -201,18 +214,19 @@ input[type="number"]:disabled {
 
 .btn {
     display: inline-block;
-    padding: var(--space-3);
-    margin: var(--space-1) 0;
+    padding: var(--space-2);
+    margin: 0;
     background-color: var(--rust-red);
     color: var(--muted-ivory);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     width: 100%;
     text-align: center;
     font-weight: var(--font-medium);
     transition: all 0.3s ease;
+    min-height: 44px;
 }
 
 .btn:hover:not(:disabled) {
@@ -227,53 +241,67 @@ input[type="number"]:disabled {
 
 .btn.correct {
     background-color: var(--success-color);
+    color: var(--success-bg);
 }
 
 .btn.incorrect {
     background-color: var(--error-color);
+    color: var(--error-bg);
 }
 
 .performance {
-    margin-top: var(--space-4);
+    margin-top: var(--space-3);
 }
 
 .stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-6);
-    padding: var(--space-3);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+    padding: var(--space-2);
     border-left: 4px solid var(--golden-ochre);
-    background-color: var(--bg-highlight);
+    background-color: var(--bg-wager);
     border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .stat-box {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2);
-    font-size: var(--text-base);
+    justify-content: center;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    font-size: var(--text-xs);
     color: var(--soft-gray);
     font-weight: var(--font-medium);
+    text-align: center;
 }
 
 .stat-box span {
     font-weight: var(--font-bold);
     color: var(--burnt-umber);
     font-family: var(--font-primary);
-    font-size: var(--text-lg);
+    font-size: var(--text-sm);
 }
 
+/* Tablet and Desktop Styles */
 @media (min-width: 768px) {
     .calculator {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-6);
     }
     
     .wager-display {
         grid-column: 1 / -1;
+        position: relative;
+        top: 0;
         padding: var(--space-6);
+        margin-bottom: 0;
+    }
+
+    .wager-display h3 {
+        font-size: var(--text-lg);
     }
     
     header {
@@ -305,19 +333,61 @@ input[type="number"]:disabled {
     .input-section {
         padding: var(--space-6);
     }
+
+    .input-section label {
+        font-size: var(--text-base);
+    }
+
+    .stat-box {
+        font-size: var(--text-base);
+        padding: var(--space-2);
+    }
+
+    .stat-box span {
+        font-size: var(--text-lg);
+    }
 }
 
+/* Mobile Portrait Optimizations */
 @media (max-width: 480px) {
-    .stats {
-        flex-wrap: wrap;
-        gap: var(--space-3);
-    }
-    
-    .stat-box {
-        font-size: var(--text-sm);
+    .content {
+        padding: 0 var(--space-2);
+        margin: var(--space-2) auto;
     }
 
-    .amount {
-        font-size: var(--text-3xl);
+    section {
+        padding: var(--space-2);
+        margin-bottom: var(--space-2);
+    }
+
+    .practice-area {
+        padding-bottom: var(--space-4); /* Extra padding for keyboard space */
+    }
+
+    /* Optimize for keyboard presence */
+    .input-section {
+        margin-bottom: var(--space-2);
+    }
+
+    /* Ensure content is visible above keyboard */
+    .calculator {
+        padding-bottom: 200px; /* Add space for keyboard */
+    }
+
+    /* Make stats more compact */
+    .stats {
+        padding: var(--space-2);
+        gap: var(--space-1);
+    }
+
+    .stat-box {
+        padding: var(--space-1);
+    }
+
+    /* Ensure minimum touch targets on mobile */
+    .btn, 
+    input[type="number"],
+    .input-group {
+        min-height: 44px;
     }
 }
