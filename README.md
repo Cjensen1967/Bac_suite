@@ -3,7 +3,7 @@
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 
 ## Project Overview
-The **Baccarat Training Suite** is a modular training application designed to teach and practice various aspects of Midi-Baccarat dealing and gameplay. The suite is structured into independent modules, each focusing on a specific aspect of Baccarat, from understanding the game's rules to mastering card handling and commission calculations.
+The **Baccarat Training Suite** is a modular training application designed to teach and practice various aspects of Baccarat dealing and gameplay. Built entirely with the assistance of Claude Sonnet 3.5, an AI-powered code-writing tool, the suite is designed with independent modules, each focusing on a specific aspect of Baccarat—from understanding the game's rules to mastering card handling and commission calculations. This modular approach not only simplifies updates and customization but also demonstrates how AI code generators can efficiently handle smaller, self-contained files, making development accessible and scalable.
 
 ## Live Demo
 Try the application here: [Baccarat Training Suite Live Demo](https://cjensen1967.github.io/Bac_suite/)
