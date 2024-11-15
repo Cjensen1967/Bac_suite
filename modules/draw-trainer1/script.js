@@ -11,7 +11,6 @@ class BaccaratTrainer {
         this.currentCardSet = 'assets';
         this.initializeButtons();
         this.initializeRulesSection();
-        this.updateCardSetIndicator();
         this.dealNewHand(false);
     }
 
@@ -47,10 +46,10 @@ class BaccaratTrainer {
             btn.onclick = () => this.handleButtonClick(btnId);
         });
 
-        // Make the card set switcher clickable
-        const switcher = document.querySelector('.card-set-switcher');
-        if (switcher) {
-            switcher.onclick = () => this.switchCardSet();
+        // Initialize style toggle button
+        const toggleBtn = document.getElementById('toggle-card-style');
+        if (toggleBtn) {
+            toggleBtn.onclick = () => this.switchCardSet();
         }
 
         // Initialize reset scores button
@@ -72,16 +71,8 @@ class BaccaratTrainer {
         });
     }
 
-    updateCardSetIndicator() {
-        const indicator = document.getElementById('current-card-set');
-        if (indicator) {
-            indicator.textContent = this.currentCardSet === 'assets' ? 'Style 1' : 'Style 2';
-        }
-    }
-
     switchCardSet() {
         this.currentCardSet = this.currentCardSet === 'assets' ? 'assets2' : 'assets';
-        this.updateCardSetIndicator();
         this.updateCardImages();
     }
 
@@ -106,38 +97,35 @@ class BaccaratTrainer {
     }
 
     handleButtonClick(btnId) {
+        const drawChoices = {
+            'btn-1': true,  // Draw
+            'btn-2': false  // Stand
+        };
+
         switch(this.currentStep) {
             case 'natural':
                 const naturalChoices = {
-                    'btn-2': 'banker',
                     'btn-1': 'player',
+                    'btn-2': 'banker',
                     'btn-3': 'tie',
                     'btn-4': 'none'
                 };
                 this.checkNatural(naturalChoices[btnId]);
                 break;
             case 'playerDraw':
-                const drawChoices = {
-                    'btn-1': true,  // Draw
-                    'btn-2': false  // Stand
-                };
                 if (btnId in drawChoices) {
                     this.checkPlayerDraw(drawChoices[btnId]);
                 }
                 break;
             case 'bankerDraw':
-                const bankerChoices = {
-                    'btn-1': true,  // Draw
-                    'btn-2': false  // Stand
-                };
                 if (btnId in drawChoices) {
-                    this.checkBankerDraw(bankerChoices[btnId]);
+                    this.checkBankerDraw(drawChoices[btnId]);
                 }
                 break;
             case 'final':
                 const finalChoices = {
-                    'btn-2': 'banker',
                     'btn-1': 'player',
+                    'btn-2': 'banker',
                     'btn-3': 'tie'
                 };
                 if (btnId in finalChoices) {
@@ -227,8 +215,8 @@ class BaccaratTrainer {
         const prompt = document.getElementById('prompt');
         prompt.textContent = "Is there a natural win?";
         this.updateButtonStates(
-            ['btn-2', 'btn-1', 'btn-3', 'btn-4'],
-            ['BANKER WIN', 'PLAYER WIN', 'TIE', 'NO NATURALS']
+            ['btn-1', 'btn-2', 'btn-3', 'btn-4'],
+            ['PLAYER WIN', 'BANKER WIN', 'TIE', 'NO NATURALS']
         );
     }
 
@@ -353,8 +341,8 @@ class BaccaratTrainer {
         const prompt = document.getElementById('prompt');
         prompt.textContent = "What is the final outcome?";
         this.updateButtonStates(
-            ['btn-2', 'btn-1', 'btn-3'],
-            ['BANKER WIN', 'PLAYER WIN', 'TIE', '']
+            ['btn-1', 'btn-2', 'btn-3'],
+            ['PLAYER WIN', 'BANKER WIN', 'TIE', '']
         );
     }
 
@@ -392,6 +380,16 @@ class BaccaratTrainer {
         const feedback = document.getElementById('feedback');
         feedback.textContent = message;
         feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+        
+        // Clear any existing timeout
+        if (this.feedbackTimeout) {
+            clearTimeout(this.feedbackTimeout);
+        }
+        
+        // Set new timeout to hide feedback after 1.5 seconds
+        this.feedbackTimeout = setTimeout(() => {
+            feedback.className = 'feedback';
+        }, 1500);
     }
 
     updateStats() {
