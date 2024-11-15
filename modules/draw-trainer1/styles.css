@@ -49,21 +49,6 @@ body {
     color: #C2874E;
 }
 
-.card-set-switcher {
-    font-size: 0.9em;
-    color: #F2E8D5;
-    background: #96583D;
-    padding: 3px 10px;
-    border-radius: 4px;
-    border: 1px solid #C2874E;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.card-set-switcher:hover {
-    background: #C2874E;
-}
-
 .baccarat-table {
     background: #006B3E;
     background-image: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%),
@@ -289,12 +274,13 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.back-btn, .reset-btn {
+.back-btn, .reset-btn, .card-style-btn {
     padding: 8px 15px;
     font-size: 0.9em;
-    min-height: 35px;
     background-color: #96583D;
     color: #F2E8D5;
     text-decoration: none;
@@ -302,14 +288,16 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
-    min-width: 120px;
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
 }
 
 .back-btn {
     background-color: #8B2D1E;
 }
 
-.back-btn:hover, .reset-btn:hover {
+.back-btn:hover, .reset-btn:hover, .card-style-btn:hover {
     background-color: #C2874E;
     transform: translateY(-1px);
 }
@@ -365,5 +353,14 @@ body {
     .feedback {
         font-size: 1em;
         padding: 12px 20px;
+    }
+
+    .back-section {
+        gap: 5px;
+    }
+
+    .back-btn, .reset-btn, .card-style-btn {
+        padding: 8px 4px;
+        font-size: 0.9em;
     }
 }
