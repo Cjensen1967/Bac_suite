@@ -10,7 +10,7 @@ class BaccaratTrainer {
         this.currentStep = 'natural';
         this.currentCardSet = 'assets';
         this.initializeButtons();
-        this.initializeRulesSection();
+        this.initializeRulesSections();
         this.dealNewHand(false);
     }
 
@@ -59,7 +59,8 @@ class BaccaratTrainer {
         }
     }
 
-    initializeRulesSection() {
+    initializeRulesSections() {
+        // Initialize rules section with peek tracking
         const rulesSection = document.getElementById('rules-section');
         rulesSection.removeAttribute('open');
         rulesSection.addEventListener('toggle', (event) => {
@@ -69,6 +70,10 @@ class BaccaratTrainer {
                 this.saveStats();
             }
         });
+
+        // Initialize instructions section without peek tracking
+        const instructionsSection = document.getElementById('instructions-section');
+        instructionsSection.removeAttribute('open');
     }
 
     switchCardSet() {
