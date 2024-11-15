@@ -66,11 +66,18 @@ body {
     border: 2px solid #004d2d;
     position: relative;
     margin: 1rem;
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
 }
 
 .player-area, .banker-area {
-    margin: 0.5rem 0;
+    width: 45%;
     text-align: center;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 .player-area h2, .banker-area h2 {
@@ -321,18 +328,41 @@ details[open] .rules-title::before {
     transform: translateY(-1px);
 }
 
-@media (min-width: 480px) {
+@media (max-width: 768px) {
+    .baccarat-table {
+        flex-direction: column;
+        align-items: center;
+        min-height: 400px;
+        padding: 0.75rem;
+    }
+
+    .player-area, .banker-area {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
     .card-slot {
         width: 70px;
         height: 102px;
     }
 
+    .stats {
+        font-size: 0.75rem;
+        gap: 0.25rem;
+        padding: 0.5rem;
+    }
+
+    .counter {
+        padding: 0.25rem;
+    }
+
     .option-btn {
         font-size: 1rem;
+        min-height: 44px;
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .card-slot {
         width: 80px;
         height: 116px;
