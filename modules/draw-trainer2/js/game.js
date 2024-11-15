@@ -6,16 +6,11 @@ class BaccaratGame {
         this.playerHand = [null, null, null];
         this.bankerHand = [null, null, null];
         this.gameState = 'initial';
-
-        // Clear stored scores on page load
-        storage.clear('correct');
-        storage.clear('wrong');
-        storage.clear('rulesPeeks');
         
         this.scores = {
-            correct: 0,
-            wrong: 0,
-            rulesPeeks: 0
+            correct: parseInt(storage.load('correct')) || 0,
+            wrong: parseInt(storage.load('wrong')) || 0,
+            rulesPeeks: parseInt(storage.load('rulesPeeks')) || 0
         };
 
         this.setupEventListeners();
@@ -47,6 +42,29 @@ class BaccaratGame {
                 this.updateScoreDisplay();
             }
         });
+
+        // Reset scores button
+        document.querySelector('.reset-scores').addEventListener('click', () => this.resetScores());
+
+        // Back button
+        document.querySelector('.back-button').addEventListener('click', () => {
+            window.location.href = '../../index.html';
+        });
+    }
+
+    resetScores() {
+        this.scores = {
+            correct: 0,
+            wrong: 0,
+            rulesPeeks: 0
+        };
+        
+        // Clear scores from storage
+        storage.clear('correct');
+        storage.clear('wrong');
+        storage.clear('rulesPeeks');
+        
+        this.updateScoreDisplay();
     }
 
     startNewGame() {

@@ -278,27 +278,33 @@ button:disabled {
     color: #F2E8D5;
 }
 
-.style-toggle {
-    display: block;
+.bottom-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin: 10px auto;
+    max-width: 600px;
+    padding: 0 10px;
+}
+
+.bottom-controls button {
+    flex: 1;
+    min-height: 35px;
     padding: 8px 15px;
     font-size: 0.9em;
-    min-height: 35px;
-    background-color: #96583D;
-    color: #F2E8D5;
+    background-color: #8B2D1E;
     border: 1px solid #C2874E;
     border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
+    text-transform: capitalize;
+    letter-spacing: normal;
 }
 
-.style-toggle:hover {
-    background-color: #C2874E;
-    transform: translateY(-1px);
+.bottom-controls button:hover {
+    background-color: #96583D;
 }
 
-.style-toggle:active {
-    transform: translateY(1px);
+.back-button {
+    background-color: #8B2D1E !important;
 }
 
 .correct {
@@ -381,7 +387,11 @@ button:disabled {
         padding: 15px;
     }
 
-    .style-toggle {
+    .bottom-controls {
+        gap: 8px;
+    }
+
+    .bottom-controls button {
         padding: 6px 12px;
         font-size: 0.85em;
         min-height: 30px;
