@@ -3,26 +3,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* Primary Colors - Adjusted for better contrast */
-    --rust-red: #8B2D1E;          /* Darker rust red for better contrast */
-    --golden-ochre: #C2874E;
-    --weathered-brown: #5A4634;
+    /* Primary Colors */
+    --primary-dark: #4E4E50;
+    --primary-medium: #647C90;
+    --primary-base: #647C90;
+    --primary-light: #746C70;
 
-    /* Secondary Colors - Refined */
-    --moss-green: #7A8C6D;
-    --muted-ivory: #F2E8D5;
-
-    /* Neutral Colors - Enhanced contrast */
-    --soft-gray: #4A4A4A;         /* Darker for better readability */
-    --warm-beige: #E6D5B1;        /* Lighter for better contrast */
-
-    /* Accent Colors - Adjusted */
-    --burnt-umber: #96583D;       /* Lighter for better readability */
-    --slate-gray: #4E4E4E;
+    /* Secondary Colors */
+    --soft-gray: #4E4E50;
+    --muted-ivory: #E2DED0;
 
     /* Background Colors */
-    --bg-intro: #A66B51;          /* Lighter intro background */
-    --bg-section: #F7F0E6;        /* Lighter section background */
+    --bg-intro: #647C90;
+    --bg-section: #E2DED0;
 
     /* Typography */
     --font-primary: 'Arial', sans-serif;
@@ -48,7 +41,7 @@
     --line-height-normal: 1.5;
     --line-height-heading: 1.2;
 
-    /* Spacing - Compact for mobile */
+    /* Spacing */
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 0.75rem;
@@ -61,13 +54,13 @@ body {
     line-height: var(--line-height-normal);
     margin: 0;
     padding: 0;
-    background-color: var(--weathered-brown);
+    background-color: var(--primary-base);
     color: var(--soft-gray);
     min-height: 100vh;
 }
 
 header {
-    background-color: var(--rust-red);
+    background-color: var(--primary-dark);
     color: var(--muted-ivory);
     padding: var(--space-2) var(--space-3);
     position: sticky;
@@ -75,7 +68,7 @@ header {
     z-index: 1000;
     text-align: center;
     transition: transform 0.3s ease;
-    border-bottom: 2px solid var(--golden-ochre);
+    border-bottom: 2px solid var(--primary-medium);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
@@ -101,7 +94,7 @@ header h1 {
     color: var(--muted-ivory);
     text-decoration: none;
     padding: var(--space-1) var(--space-2);
-    border: 1px solid var(--golden-ochre);
+    border: 1px solid var(--primary-medium);
     border-radius: 4px;
     transition: all 0.3s ease;
     font-weight: var(--font-medium);
@@ -111,7 +104,7 @@ header h1 {
 }
 
 .back-btn:hover {
-    background-color: var(--golden-ochre);
+    background-color: var(--primary-medium);
     color: var(--muted-ivory);
 }
 
@@ -130,7 +123,7 @@ header h1 {
     background-color: var(--bg-intro);
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--golden-ochre);
+    border: 1px solid var(--primary-light);
 }
 
 .history-section {
@@ -139,7 +132,7 @@ header h1 {
     padding: var(--space-3);
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--warm-beige);
+    border: 1px solid var(--primary-light);
     transition: all 0.3s ease;
 }
 
@@ -150,12 +143,12 @@ header h1 {
 
 .history-section h2 {
     font-family: var(--font-primary);
-    color: var(--rust-red);
+    color: var(--primary-dark);
     margin-top: 0;
     margin-bottom: var(--space-2);
     font-size: var(--text-lg);
     font-weight: var(--font-semibold);
-    border-bottom: 1px solid var(--golden-ochre);
+    border-bottom: 1px solid var(--primary-medium);
     padding-bottom: var(--space-2);
 }
 
@@ -172,13 +165,13 @@ header h1 {
 
 /* Highlight important text */
 .history-section strong {
-    color: var(--rust-red);
+    color: var(--primary-dark);
     font-weight: var(--font-semibold);
 }
 
 /* Emphasis text */
 .history-section em {
-    color: var(--golden-ochre);
+    color: var(--primary-medium);
     font-style: italic;
 }
 

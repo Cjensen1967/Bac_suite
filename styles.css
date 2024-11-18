@@ -4,19 +4,19 @@
 
 :root {
     /* Primary Colors */
-    --primary-dark: #3E362E;
-    --primary-medium: #865D36;
-    --primary-base: #93785B;
-    --primary-light: #AC8968;
-    --primary-lightest: #A69080;
+    --primary-dark: #4E4E50;
+    --primary-medium: #647C90;
+    --primary-base: #647C90;
+    --primary-light: #746C70;
+    --primary-lightest: #746C70;
 
     /* Secondary Colors */
-    --soft-gray: #4A4A4A;
-    --muted-ivory: #F2E8D5;
+    --soft-gray: #4E4E50;
+    --muted-ivory: #E2DED0;
 
     /* Background Colors */
-    --bg-section: #F7F0E6;
-    --bg-highlight: rgba(134, 93, 54, 0.1);
+    --bg-section: #E2DED0;
+    --bg-highlight: rgba(100, 124, 144, 0.1);
 
     /* Typography */
     --font-primary: 'Arial', sans-serif;
@@ -149,7 +149,7 @@ header h1 {
 }
 
 .btn:hover {
-    background-color: var(--primary-light);
+    background-color: var(--primary-medium);
     transform: translateY(-1px);
 }
 

@@ -6,8 +6,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #5A4634;
-    color: #F2E8D5;
+    background-color: #647C90;
+    color: #E2DED0;
     line-height: 1.6;
 }
 
@@ -20,14 +20,14 @@ body {
 header {
     text-align: center;
     margin-bottom: 10px;
-    background: #8B2D1E;
+    background: #4E4E50;
     border-radius: 8px;
     padding: 8px;
-    border: 1px solid #C2874E;
+    border: 1px solid #746C70;
 }
 
 .score-display {
-    color: #F2E8D5;
+    color: #E2DED0;
     padding: 3px 10px;
     font-size: 0.9em;
     display: flex;
@@ -42,7 +42,7 @@ header {
 .score-display span {
     font-weight: bold;
     margin-left: 5px;
-    color: #C2874E;
+    color: #647C90;
 }
 
 .game-area {
@@ -74,7 +74,7 @@ header {
     transform: rotate(180deg);
     margin-bottom: 10px;
     font-size: 1.4em;
-    color: #F2E8D5;
+    color: #E2DED0;
     background: rgba(0, 0, 0, 0.2);
     padding: 8px;
     border-radius: 8px;
@@ -115,12 +115,12 @@ header {
 }
 
 .draw-placeholder:hover {
-    border-color: #C2874E;
+    border-color: #746C70;
     background: rgba(0, 0, 0, 0.3);
 }
 
 .draw-text {
-    color: #F2E8D5;
+    color: #E2DED0;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -133,7 +133,7 @@ header {
     text-align: center;
     padding: 10px 20px;
     font-size: 1.2em;
-    color: #F2E8D5;
+    color: #E2DED0;
     z-index: 9999;
     pointer-events: none;
     opacity: 0;
@@ -141,7 +141,7 @@ header {
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 8px;
     white-space: normal;
-    border: 1px solid #C2874E;
+    border: 1px solid #746C70;
     max-width: 90%;
 }
 
@@ -154,9 +154,9 @@ header {
     margin: 0 auto;
     padding: 15px;
     max-width: 800px;
-    background: #8B2D1E;
+    background: #4E4E50;
     border-radius: 8px;
-    border: 1px solid #C2874E;
+    border: 1px solid #746C70;
 }
 
 .decision-buttons {
@@ -186,9 +186,9 @@ header {
 button {
     padding: 15px 20px;
     font-size: 1.1em;
-    background-color: #96583D;
-    color: #F2E8D5;
-    border: 1px solid #C2874E;
+    background-color: #647C90;
+    color: #E2DED0;
+    border: 1px solid #746C70;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
@@ -198,7 +198,7 @@ button {
 }
 
 button:hover {
-    background-color: #C2874E;
+    background-color: #746C70;
     transform: translateY(-1px);
 }
 
@@ -207,9 +207,9 @@ button:active {
 }
 
 button:disabled {
-    background-color: #4E4E4E;
-    color: #E6D5B1;
-    border-color: #4A4A4A;
+    background-color: #4E4E50;
+    color: #E2DED0;
+    border-color: #746C70;
     cursor: not-allowed;
     opacity: 0.7;
 }
@@ -217,8 +217,8 @@ button:disabled {
 .rules-dropdown {
     margin: 15px auto 0 auto;
     max-width: 600px;
-    background-color: #8B2D1E;
-    border: 1px solid #C2874E;
+    background-color: #4E4E50;
+    border: 1px solid #746C70;
     border-radius: 8px;
     font-size: 0.9em;
     overflow: hidden;
@@ -235,7 +235,7 @@ button:disabled {
     align-items: center;
     justify-content: center;
     background: rgba(0, 0, 0, 0.2);
-    color: #F2E8D5;
+    color: #E2DED0;
 }
 
 .rules-dropdown summary:hover {
@@ -258,7 +258,7 @@ button:disabled {
 .rule-section strong {
     display: block;
     margin-bottom: 4px;
-    color: #C2874E;
+    color: #647C90;
 }
 
 .rule-section ul {
@@ -269,7 +269,7 @@ button:disabled {
 .rule-section li {
     font-size: 0.85em;
     line-height: 1.4;
-    color: #F2E8D5;
+    color: #E2DED0;
 }
 
 .bottom-controls {
@@ -286,27 +286,27 @@ button:disabled {
     min-height: 35px;
     padding: 8px 15px;
     font-size: 0.9em;
-    background-color: #8B2D1E;
-    border: 1px solid #C2874E;
+    background-color: #4E4E50;
+    border: 1px solid #746C70;
     border-radius: 5px;
     text-transform: capitalize;
     letter-spacing: normal;
 }
 
 .bottom-controls button:hover {
-    background-color: #96583D;
+    background-color: #647C90;
 }
 
 .back-button {
-    background-color: #8B2D1E !important;
+    background-color: #4E4E50 !important;
 }
 
 .correct {
-    color: #7A8C6D;
+    color: #5B8A4B;
 }
 
 .incorrect {
-    color: #8B2D1E;
+    color: #B4432C;
 }
 
 @media (max-width: 768px) {
