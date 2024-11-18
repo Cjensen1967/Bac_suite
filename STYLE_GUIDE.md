@@ -1,39 +1,45 @@
 # Baccarat Training Suite Style Guide
 
 ## Overview
-This style guide documents the design system for the Baccarat Training Suite, implementing the Rustic Haven Corporate Manual & Training Guide standards. It ensures consistency across all modules while maintaining readability and usability across different devices.
+This style guide documents the design system for the Baccarat Training Suite, implementing a modern, professional color scheme that ensures consistency across all modules while maintaining readability and usability across different devices.
 
 ## Color Palette
 
 ### Primary Colors
 ```css
---rust-red: #8B2D1E;      /* Headers, primary actions */
---golden-ochre: #C2874E;  /* Accents, highlights */
---weathered-brown: #5A4634; /* Main background */
+--primary-dark: #4E4E50;    /* Headers, footers */
+--primary-medium: #647C90;  /* Main background, buttons */
+--primary-base: #647C90;    /* Backgrounds, accents */
+--primary-light: #746C70;   /* Borders, hover states */
 ```
 
 ### Secondary Colors
 ```css
---moss-green: #7A8C6D;    /* Success states, secondary actions */
---muted-ivory: #F2E8D5;   /* Light backgrounds */
-```
-
-### Neutral Colors
-```css
---soft-gray: #4A4A4A;     /* Body text */
---warm-beige: #E6D5B1;    /* Alternative backgrounds */
-```
-
-### Accent Colors
-```css
---burnt-umber: #96583D;   /* Decorative elements */
---slate-gray: #4E4E4E;    /* Secondary text */
+--soft-gray: #4E4E50;     /* Body text */
+--muted-ivory: #E2DED0;   /* Light backgrounds, text on dark */
 ```
 
 ### Background Colors
 ```css
---bg-intro: #A66B51;      /* Introduction sections */
---bg-section: #F7F0E6;    /* Content sections */
+--bg-section: #E2DED0;    /* Content sections */
+--bg-highlight: rgba(100, 124, 144, 0.1); /* Subtle highlights */
+```
+
+### Game-Specific Colors
+```css
+/* Draw Trainer 1 */
+--table-green: #006B3E;   /* Traditional baccarat table */
+
+/* Draw Trainer 2 */
+--table-red: #8B0000;     /* Alternative table color */
+```
+
+### Status Colors
+```css
+--success-color: #5B8A4B;
+--success-bg: #EDF7EA;
+--error-color: #B4432C;
+--error-bg: #FDEAE7;
 ```
 
 ## Typography
@@ -53,6 +59,7 @@ This style guide documents the design system for the Baccarat Training Suite, im
 --text-xl: 1.25rem;    /* 20px */
 --text-2xl: 1.5rem;    /* 24px */
 --text-3xl: 1.875rem;  /* 30px */
+--text-4xl: 2.25rem;   /* 36px */
 ```
 
 ### Font Weights
@@ -84,32 +91,32 @@ This style guide documents the design system for the Baccarat Training Suite, im
 ## Component Guidelines
 
 ### Headers
-- Use rust-red background
-- Golden ochre accents
+- Use Cool Gray background
+- Blue Gray accents
 - Sticky positioning
 - Consistent padding across devices
 
 ```css
 header {
-    background-color: var(--rust-red);
+    background-color: var(--primary-dark);
     color: var(--muted-ivory);
     padding: var(--space-2) var(--space-3);
-    border-bottom: 2px solid var(--golden-ochre);
+    border-bottom: 2px solid var(--primary-medium);
 }
 ```
 
 ### Content Sections
-- Light backgrounds for readability
+- Ivory backgrounds for readability
 - Consistent spacing
 - Subtle hover effects
 - Clear visual hierarchy
 
 ```css
-.history-section {
+.section {
     background-color: var(--bg-section);
     padding: var(--space-3);
     border-radius: 4px;
-    border: 1px solid var(--warm-beige);
+    border: 1px solid var(--primary-light);
 }
 ```
 
@@ -119,10 +126,11 @@ header {
 - Consistent border treatments
 
 ```css
-.back-btn {
+.btn {
+    background-color: var(--primary-dark);
     color: var(--muted-ivory);
-    padding: var(--space-1) var(--space-2);
-    border: 1px solid var(--golden-ochre);
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--primary-light);
     border-radius: 4px;
 }
 ```
@@ -194,5 +202,10 @@ header {
    - Minimize complex animations on mobile
    - Use system fonts for better performance
    - Optimize box-shadow usage
+
+5. Game-Specific Considerations:
+   - Maintain traditional green felt for Draw Trainer 1
+   - Use red felt for Draw Trainer 2 to differentiate
+   - Keep consistent UI elements around game areas
 
 This style guide should be referenced when creating new modules or updating existing ones to maintain consistency across the Baccarat Training Suite.
