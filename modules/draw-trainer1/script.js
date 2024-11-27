@@ -41,18 +41,33 @@ class BaccaratTrainer {
 
     initializeButtons() {
         // Initialize decision buttons
-        ['btn-1', 'btn-2', 'btn-3', 'btn-4'].forEach(btnId => {
-            const btn = document.getElementById(btnId);
-            btn.onclick = () => this.handleButtonClick(btnId);
-        });
+        const tieBtn = document.getElementById('tie-action');
+        const noNaturalBtn = document.getElementById('no-natural-action');
+        const playerWinBtn = document.getElementById('player-win');
+        const bankerWinBtn = document.getElementById('banker-win');
 
-        // Initialize style toggle button
+        if (tieBtn) tieBtn.onclick = () => this.handleButtonClick('tie');
+        if (noNaturalBtn) noNaturalBtn.onclick = () => this.handleButtonClick('none');
+        if (playerWinBtn) playerWinBtn.onclick = () => this.handleButtonClick('player');
+        if (bankerWinBtn) bankerWinBtn.onclick = () => this.handleButtonClick('banker');
+
+        // Initialize draw/stand buttons
+        const playerDrawBtn = document.getElementById('player-card-3');
+        const bankerDrawBtn = document.getElementById('banker-card-3');
+        const playerStandBtn = document.getElementById('player-stand');
+        const bankerStandBtn = document.getElementById('banker-stand');
+
+        if (playerDrawBtn) playerDrawBtn.onclick = () => this.checkPlayerDraw(true);
+        if (bankerDrawBtn) bankerDrawBtn.onclick = () => this.checkBankerDraw(true);
+        if (playerStandBtn) playerStandBtn.onclick = () => this.checkPlayerDraw(false);
+        if (bankerStandBtn) bankerStandBtn.onclick = () => this.checkBankerDraw(false);
+
+        // Initialize other buttons
         const toggleBtn = document.getElementById('toggle-card-style');
         if (toggleBtn) {
             toggleBtn.onclick = () => this.switchCardSet();
         }
 
-        // Initialize reset scores button
         const resetBtn = document.getElementById('reset-scores');
         if (resetBtn) {
             resetBtn.onclick = () => this.resetStats();
@@ -60,20 +75,30 @@ class BaccaratTrainer {
     }
 
     initializeRulesSections() {
-        // Initialize rules section with peek tracking
         const rulesSection = document.getElementById('rules-section');
-        rulesSection.removeAttribute('open');
-        rulesSection.addEventListener('toggle', (event) => {
-            if (rulesSection.open) {
-                this.stats.peeks++;
-                this.updateStats();
-                this.saveStats();
-            }
-        });
+        if (rulesSection) {
+            rulesSection.removeAttribute('open');
+            rulesSection.addEventListener('toggle', (event) => {
+                if (rulesSection.open) {
+                    this.stats.peeks++;
+                    this.updateStats();
+                    this.saveStats();
+                }
+            });
+        }
 
-        // Initialize instructions section without peek tracking
         const instructionsSection = document.getElementById('instructions-section');
-        instructionsSection.removeAttribute('open');
+        if (instructionsSection) {
+            instructionsSection.removeAttribute('open');
+        }
+    }
+
+    handleButtonClick(choice) {
+        if (this.currentStep === 'natural') {
+            this.checkNatural(choice);
+        } else if (this.currentStep === 'final') {
+            this.checkFinalOutcome(choice);
+        }
     }
 
     switchCardSet() {
@@ -101,48 +126,11 @@ class BaccaratTrainer {
         this.displayCards();
     }
 
-    handleButtonClick(btnId) {
-        const drawChoices = {
-            'btn-1': false,  // Stand
-            'btn-2': true   // Draw
-        };
-
-        switch(this.currentStep) {
-            case 'natural':
-                const naturalChoices = {
-                    'btn-1': 'player',
-                    'btn-2': 'banker',
-                    'btn-3': 'tie',
-                    'btn-4': 'none'
-                };
-                this.checkNatural(naturalChoices[btnId]);
-                break;
-            case 'playerDraw':
-                if (btnId in drawChoices) {
-                    this.checkPlayerDraw(drawChoices[btnId]);
-                }
-                break;
-            case 'bankerDraw':
-                if (btnId in drawChoices) {
-                    this.checkBankerDraw(drawChoices[btnId]);
-                }
-                break;
-            case 'final':
-                const finalChoices = {
-                    'btn-1': 'player',
-                    'btn-2': 'banker',
-                    'btn-3': 'tie'
-                };
-                if (btnId in finalChoices) {
-                    this.checkFinalOutcome(finalChoices[btnId]);
-                }
-                break;
-        }
-    }
-
     dealNewHand() {
         const rulesSection = document.getElementById('rules-section');
-        rulesSection.removeAttribute('open');
+        if (rulesSection) {
+            rulesSection.removeAttribute('open');
+        }
 
         this.currentHand = {
             player: [this.drawRandomCard(), this.drawRandomCard()],
@@ -169,37 +157,97 @@ class BaccaratTrainer {
         for (let i = 1; i <= 3; i++) {
             const playerSlot = document.getElementById(`player-card-${i}`);
             const bankerSlot = document.getElementById(`banker-card-${i}`);
-            playerSlot.innerHTML = '';
-            bankerSlot.innerHTML = '';
-            playerSlot.classList.remove('filled');
-            bankerSlot.classList.remove('filled');
+            if (playerSlot) {
+                playerSlot.innerHTML = i === 3 && !this.currentHand.playerThirdCard ? '<span class="vertical-text">DRAW</span>' : '';
+                playerSlot.classList.remove('active');
+            }
+            if (bankerSlot) {
+                bankerSlot.innerHTML = i === 3 && !this.currentHand.bankerThirdCard ? '<span class="vertical-text">DRAW</span>' : '';
+                bankerSlot.classList.remove('active');
+            }
         }
 
-        // Display Player cards
+        // Display initial cards
         this.currentHand.player.forEach((card, index) => {
             const slot = document.getElementById(`player-card-${index + 1}`);
-            slot.innerHTML = `<img src="${card.img}" alt="${card.value} of ${card.suit}">`;
-            slot.classList.add('filled');
+            if (slot) {
+                slot.innerHTML = `<img src="${card.img}" alt="${card.value} of ${card.suit}">`;
+            }
         });
 
-        // Display Banker cards
         this.currentHand.banker.forEach((card, index) => {
             const slot = document.getElementById(`banker-card-${index + 1}`);
-            slot.innerHTML = `<img src="${card.img}" alt="${card.value} of ${card.suit}">`;
-            slot.classList.add('filled');
+            if (slot) {
+                slot.innerHTML = `<img src="${card.img}" alt="${card.value} of ${card.suit}">`;
+            }
         });
 
         // Display third cards if they exist
         if (this.currentHand.playerThirdCard) {
             const slot = document.getElementById('player-card-3');
-            slot.innerHTML = `<img src="${this.currentHand.playerThirdCard.img}" alt="${this.currentHand.playerThirdCard.value} of ${this.currentHand.playerThirdCard.suit}">`;
-            slot.classList.add('filled');
+            if (slot) {
+                slot.innerHTML = `<img src="${this.currentHand.playerThirdCard.img}" alt="${this.currentHand.playerThirdCard.value} of ${this.currentHand.playerThirdCard.suit}">`;
+            }
         }
 
         if (this.currentHand.bankerThirdCard) {
             const slot = document.getElementById('banker-card-3');
-            slot.innerHTML = `<img src="${this.currentHand.bankerThirdCard.img}" alt="${this.currentHand.bankerThirdCard.value} of ${this.currentHand.bankerThirdCard.suit}">`;
-            slot.classList.add('filled');
+            if (slot) {
+                slot.innerHTML = `<img src="${this.currentHand.bankerThirdCard.img}" alt="${this.currentHand.bankerThirdCard.value} of ${this.currentHand.bankerThirdCard.suit}">`;
+            }
+        }
+
+        // Update UI based on current step
+        this.updateUI();
+    }
+
+    updateUI() {
+        const playerWinBtn = document.getElementById('player-win');
+        const bankerWinBtn = document.getElementById('banker-win');
+        const tieBtn = document.getElementById('tie-action');
+        const noNaturalBtn = document.getElementById('no-natural-action');
+        const playerDrawBtn = document.getElementById('player-card-3');
+        const bankerDrawBtn = document.getElementById('banker-card-3');
+        const playerStandBtn = document.getElementById('player-stand');
+        const bankerStandBtn = document.getElementById('banker-stand');
+
+        // Reset all buttons
+        [playerWinBtn, bankerWinBtn, tieBtn, noNaturalBtn].forEach(btn => {
+            if (btn) btn.classList.remove('active');
+        });
+
+        [playerDrawBtn, bankerDrawBtn].forEach(btn => {
+            if (btn) btn.classList.remove('active');
+        });
+
+        [playerStandBtn, bankerStandBtn].forEach(btn => {
+            if (btn) btn.classList.remove('active');
+        });
+
+        switch(this.currentStep) {
+            case 'natural':
+                if (playerWinBtn) playerWinBtn.classList.add('active');
+                if (bankerWinBtn) bankerWinBtn.classList.add('active');
+                if (tieBtn) tieBtn.classList.add('active');
+                if (noNaturalBtn) noNaturalBtn.classList.add('active');
+                break;
+            case 'playerDraw':
+                if (!this.currentHand.playerThirdCard) {
+                    if (playerDrawBtn) playerDrawBtn.classList.add('active');
+                    if (playerStandBtn) playerStandBtn.classList.add('active');
+                }
+                break;
+            case 'bankerDraw':
+                if (!this.currentHand.bankerThirdCard) {
+                    if (bankerDrawBtn) bankerDrawBtn.classList.add('active');
+                    if (bankerStandBtn) bankerStandBtn.classList.add('active');
+                }
+                break;
+            case 'final':
+                if (playerWinBtn) playerWinBtn.classList.add('active');
+                if (bankerWinBtn) bankerWinBtn.classList.add('active');
+                if (tieBtn) tieBtn.classList.add('active');
+                break;
         }
     }
 
@@ -218,22 +266,10 @@ class BaccaratTrainer {
 
     showNaturalDecision() {
         const prompt = document.getElementById('prompt');
-        prompt.textContent = "Is there a natural win?";
-        this.updateButtonStates(
-            ['btn-1', 'btn-2', 'btn-3', 'btn-4'],
-            ['PLAYER WIN', 'BANKER WIN', 'TIE', 'NO NATURALS']
-        );
-    }
-
-    updateButtonStates(activeButtons, labels) {
-        ['btn-1', 'btn-2', 'btn-3', 'btn-4'].forEach((btnId, index) => {
-            const btn = document.getElementById(btnId);
-            btn.disabled = !activeButtons.includes(btnId);
-            btn.textContent = labels[index] || '';
-            if (!labels[index]) {
-                btn.disabled = true;
-            }
-        });
+        if (prompt) {
+            prompt.textContent = "Is there a natural win?";
+        }
+        this.updateUI();
     }
 
     checkNatural(choice) {
@@ -268,11 +304,10 @@ class BaccaratTrainer {
 
     showPlayerDrawDecision() {
         const prompt = document.getElementById('prompt');
-        prompt.textContent = "Should Player draw a third card?";
-        this.updateButtonStates(
-            ['btn-1', 'btn-2'],
-            ['STAND', 'DRAW', '', '']
-        );
+        if (prompt) {
+            prompt.textContent = "Should Player draw a third card?";
+        }
+        this.updateUI();
     }
 
     checkPlayerDraw(shouldDraw) {
@@ -298,11 +333,10 @@ class BaccaratTrainer {
 
     showBankerDrawDecision() {
         const prompt = document.getElementById('prompt');
-        prompt.textContent = "Should Banker draw a third card?";
-        this.updateButtonStates(
-            ['btn-1', 'btn-2'],
-            ['STAND', 'DRAW', '', '']
-        );
+        if (prompt) {
+            prompt.textContent = "Should Banker draw a third card?";
+        }
+        this.updateUI();
     }
 
     checkBankerDraw(shouldDraw) {
@@ -344,11 +378,10 @@ class BaccaratTrainer {
 
     showFinalDecision() {
         const prompt = document.getElementById('prompt');
-        prompt.textContent = "What is the final outcome?";
-        this.updateButtonStates(
-            ['btn-1', 'btn-2', 'btn-3'],
-            ['PLAYER WIN', 'BANKER WIN', 'TIE', '']
-        );
+        if (prompt) {
+            prompt.textContent = "What is the final outcome?";
+        }
+        this.updateUI();
     }
 
     checkFinalOutcome(choice) {
@@ -383,25 +416,27 @@ class BaccaratTrainer {
 
     showFeedback(isCorrect, message) {
         const feedback = document.getElementById('feedback');
-        feedback.textContent = message;
-        feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-        
-        // Clear any existing timeout
-        if (this.feedbackTimeout) {
-            clearTimeout(this.feedbackTimeout);
+        if (feedback) {
+            feedback.textContent = message;
+            feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+            
+            if (this.feedbackTimeout) {
+                clearTimeout(this.feedbackTimeout);
+            }
+            
+            this.feedbackTimeout = setTimeout(() => {
+                feedback.className = 'feedback';
+            }, 1500);
         }
-        
-        // Set new timeout to hide feedback after 1.5 seconds
-        this.feedbackTimeout = setTimeout(() => {
-            feedback.className = 'feedback';
-        }, 1500);
     }
 
     updateStats() {
-        document.getElementById('correct-count').textContent = this.stats.correct;
-        document.getElementById('incorrect-count').textContent = this.stats.incorrect;
-        document.getElementById('hands-count').textContent = this.stats.hands;
-        document.getElementById('peeks-count').textContent = this.stats.peeks;
+        ['correct', 'incorrect', 'hands', 'peeks'].forEach(stat => {
+            const element = document.getElementById(`${stat}-count`);
+            if (element) {
+                element.textContent = this.stats[stat];
+            }
+        });
     }
 }
 

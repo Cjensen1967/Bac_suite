@@ -15,14 +15,25 @@
             <div class="counter">Peeks: <span id="peeks-count">0</span></div>
         </div>
 
+        <div id="prompt" class="prompt"></div>
+
         <div class="baccarat-table">
             <div class="banker-area">
                 <h2>Banker</h2>
                 <div class="cards-area">
-                    <div class="card-slot draw-placeholder" id="banker-card-3"></div>
+                    <button class="card-slot draw-btn" id="banker-card-3">
+                        <span class="vertical-text">DRAW</span>
+                    </button>
                     <div class="card-slot" id="banker-card-1"></div>
                     <div class="card-slot" id="banker-card-2"></div>
                 </div>
+                <button class="stand-btn" id="banker-stand">STAND</button>
+                <button class="decision-btn" id="banker-win">BANKER WIN</button>
+            </div>
+
+            <div class="middle-buttons">
+                <button class="decision-btn" id="tie-action">TIE</button>
+                <button class="decision-btn" id="no-natural-action">NO NATURALS</button>
             </div>
 
             <div class="player-area">
@@ -30,20 +41,12 @@
                 <div class="cards-area">
                     <div class="card-slot" id="player-card-1"></div>
                     <div class="card-slot" id="player-card-2"></div>
-                    <div class="card-slot draw-placeholder" id="player-card-3"></div>
+                    <button class="card-slot draw-btn" id="player-card-3">
+                        <span class="vertical-text">DRAW</span>
+                    </button>
                 </div>
-            </div>
-        </div>
-
-        <div class="decision-area">
-            <div id="prompt" class="prompt"></div>
-            <div id="options" class="options">
-                <div class="button-grid">
-                    <button class="option-btn" id="btn-2">Banker Win</button>
-                    <button class="option-btn" id="btn-1">Player Win</button>
-                    <button class="option-btn" id="btn-3">Tie</button>
-                    <button class="option-btn" id="btn-4">No Natural</button>
-                </div>
+                <button class="stand-btn" id="player-stand">STAND</button>
+                <button class="decision-btn" id="player-win">PLAYER WIN</button>
             </div>
         </div>
 
@@ -73,8 +76,8 @@
                 <ul class="rules-list">
                     <li><strong>Quick Start:</strong></li>
                     <li class="indented">View hands from dealer's perspective (Banker left, Player right)</li>
-                    <li class="indented">Follow prompts at the bottom of screen</li>
-                    <li class="indented">Use buttons to make decisions</li>
+                    <li class="indented">Follow prompts at the top of screen</li>
+                    <li class="indented">Click DRAW or STAND to make decisions</li>
                     <li class="indented">Track progress with counters at top</li>
                     
                     <li><strong>Decision Steps:</strong></li>
