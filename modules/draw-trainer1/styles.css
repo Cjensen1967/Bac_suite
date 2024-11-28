@@ -396,8 +396,10 @@ body {
 }
 
 .back-btn, .reset-btn, .card-style-btn {
-    padding: 8px 15px;
-    font-size: 0.9em;
+    padding: 12px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
     font-family: 'Arial Narrow', Arial, sans-serif;
     background-color: #647C90;
     color: #E2DED0;
@@ -406,9 +408,9 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s;
-    flex: 1;
-    min-width: 0;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .back-btn {
@@ -530,7 +532,9 @@ body {
     }
 
     .back-btn, .reset-btn, .card-style-btn {
-        padding: 8px 4px;
-        font-size: 0.85em;
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+        font-size: 1em;
     }
 }
