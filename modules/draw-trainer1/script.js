@@ -267,6 +267,7 @@ class BaccaratTrainer {
     showNaturalDecision() {
         const prompt = document.getElementById('prompt');
         if (prompt) {
+            prompt.className = 'prompt';
             prompt.textContent = "Is there a natural win?";
         }
         this.updateUI();
@@ -305,6 +306,7 @@ class BaccaratTrainer {
     showPlayerDrawDecision() {
         const prompt = document.getElementById('prompt');
         if (prompt) {
+            prompt.className = 'prompt';
             prompt.textContent = "Should Player draw a third card?";
         }
         this.updateUI();
@@ -334,6 +336,7 @@ class BaccaratTrainer {
     showBankerDrawDecision() {
         const prompt = document.getElementById('prompt');
         if (prompt) {
+            prompt.className = 'prompt';
             prompt.textContent = "Should Banker draw a third card?";
         }
         this.updateUI();
@@ -379,6 +382,7 @@ class BaccaratTrainer {
     showFinalDecision() {
         const prompt = document.getElementById('prompt');
         if (prompt) {
+            prompt.className = 'prompt';
             prompt.textContent = "What is the final outcome?";
         }
         this.updateUI();
@@ -415,18 +419,14 @@ class BaccaratTrainer {
     }
 
     showFeedback(isCorrect, message) {
-        const feedback = document.getElementById('feedback');
-        if (feedback) {
-            feedback.textContent = message;
-            feedback.className = `feedback ${isCorrect ? 'correct' : 'incorrect'}`;
+        const prompt = document.getElementById('prompt');
+        if (prompt) {
+            prompt.textContent = message;
+            prompt.className = `prompt ${isCorrect ? 'correct' : 'incorrect'}`;
             
             if (this.feedbackTimeout) {
                 clearTimeout(this.feedbackTimeout);
             }
-            
-            this.feedbackTimeout = setTimeout(() => {
-                feedback.className = 'feedback';
-            }, 1500);
         }
     }
 

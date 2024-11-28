@@ -70,6 +70,15 @@ body {
     background: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
     margin-bottom: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.prompt.correct {
+    background-color: #5B8A4B;
+}
+
+.prompt.incorrect {
+    background-color: #B4432C;
 }
 
 .player-area, .banker-area {
@@ -239,36 +248,6 @@ body {
 #banker-win, #player-win {
     background: rgba(0, 0, 0, 0.5);
     margin-top: 10px;
-}
-
-.feedback {
-    position: fixed;
-    left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-weight: 500;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: opacity 0.3s ease-in-out;
-    color: #E2DED0;
-    background-color: rgba(0, 0, 0, 0.9);
-    border: 1px solid #746C70;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0;
-    max-width: 90%;
-}
-
-.feedback.correct {
-    background-color: #5B8A4B;
-    opacity: 1;
-}
-
-.feedback.incorrect {
-    background-color: #B4432C;
-    opacity: 1;
 }
 
 .rules-section {
@@ -445,12 +424,6 @@ body {
         min-height: 60px;
         font-size: 1.2em;
         padding: 15px;
-    }
-
-    .feedback {
-        font-size: 1em;
-        padding: 12px 20px;
-        top: 35%;
     }
 
     .back-section {
