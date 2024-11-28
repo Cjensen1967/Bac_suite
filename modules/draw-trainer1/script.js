@@ -286,17 +286,20 @@ class BaccaratTrainer {
         }
 
         if (choice === correctAnswer) {
-            this.showFeedback(true, "Correct!");
+            this.showFeedback(true, "Correct!", () => {
+                if (isNatural) {
+                    this.stats.hands++;
+                    this.dealNewHand();
+                } else {
+                    this.currentStep = 'playerDraw';
+                    this.showPlayerDrawDecision();
+                }
+            });
             this.stats.correct++;
-            if (isNatural) {
-                this.stats.hands++;
-                setTimeout(() => this.dealNewHand(), 1500);
-            } else {
-                this.currentStep = 'playerDraw';
-                setTimeout(() => this.showPlayerDrawDecision(), 1500);
-            }
         } else {
-            this.showFeedback(false, "Incorrect. Try again!");
+            this.showFeedback(false, "Incorrect. Try again!", () => {
+                this.showNaturalDecision();
+            });
             this.stats.incorrect++;
         }
         this.updateStats();
@@ -317,16 +320,19 @@ class BaccaratTrainer {
         const correctDraw = playerValue <= 5;
 
         if (shouldDraw === correctDraw) {
-            this.showFeedback(true, "Correct!");
+            this.showFeedback(true, "Correct!", () => {
+                if (shouldDraw) {
+                    this.currentHand.playerThirdCard = this.drawRandomCard();
+                    this.displayCards();
+                }
+                this.currentStep = 'bankerDraw';
+                this.showBankerDrawDecision();
+            });
             this.stats.correct++;
-            if (shouldDraw) {
-                this.currentHand.playerThirdCard = this.drawRandomCard();
-                this.displayCards();
-            }
-            this.currentStep = 'bankerDraw';
-            setTimeout(() => this.showBankerDrawDecision(), 1500);
         } else {
-            this.showFeedback(false, "Incorrect. Remember: Player draws on 0-5, stands on 6-7");
+            this.showFeedback(false, "Incorrect. Remember: Player draws on 0-5, stands on 6-7", () => {
+                this.showPlayerDrawDecision();
+            });
             this.stats.incorrect++;
         }
         this.updateStats();
@@ -362,17 +368,19 @@ class BaccaratTrainer {
         }
 
         if (shouldDraw === correctDraw) {
-            this.showFeedback(true, "Correct!");
+            this.showFeedback(true, "Correct!", () => {
+                if (shouldDraw) {
+                    this.currentHand.bankerThirdCard = this.drawRandomCard();
+                    this.displayCards();
+                }
+                this.currentStep = 'final';
+                this.showFinalDecision();
+            });
             this.stats.correct++;
-            if (shouldDraw) {
-                this.currentHand.bankerThirdCard = this.drawRandomCard();
-                this.displayCards();
-            }
-            
-            this.currentStep = 'final';
-            setTimeout(() => this.showFinalDecision(), 1500);
         } else {
-            this.showFeedback(false, "Incorrect. Check the Banker drawing rules.");
+            this.showFeedback(false, "Incorrect. Check the Banker drawing rules.", () => {
+                this.showBankerDrawDecision();
+            });
             this.stats.incorrect++;
         }
         this.updateStats();
@@ -398,12 +406,15 @@ class BaccaratTrainer {
         else correctOutcome = 'banker';
 
         if (choice === correctOutcome) {
-            this.showFeedback(true, `Correct! Final scores - Player: ${playerFinal}, Banker: ${bankerFinal}`);
+            this.showFeedback(true, `Correct! Final scores - Player: ${playerFinal}, Banker: ${bankerFinal}`, () => {
+                this.stats.hands++;
+                this.dealNewHand();
+            });
             this.stats.correct++;
-            this.stats.hands++;
-            setTimeout(() => this.dealNewHand(), 2000);
         } else {
-            this.showFeedback(false, "Incorrect. Try again!");
+            this.showFeedback(false, "Incorrect. Try again!", () => {
+                this.showFinalDecision();
+            });
             this.stats.incorrect++;
         }
         this.updateStats();
@@ -418,7 +429,7 @@ class BaccaratTrainer {
         return this.calculateHandValue(hand);
     }
 
-    showFeedback(isCorrect, message) {
+    showFeedback(isCorrect, message, nextAction) {
         const prompt = document.getElementById('prompt');
         if (prompt) {
             prompt.textContent = message;
@@ -427,6 +438,12 @@ class BaccaratTrainer {
             if (this.feedbackTimeout) {
                 clearTimeout(this.feedbackTimeout);
             }
+            
+            this.feedbackTimeout = setTimeout(() => {
+                if (nextAction) {
+                    nextAction();
+                }
+            }, 1500);
         }
     }
 
