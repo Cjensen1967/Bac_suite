@@ -20,6 +20,113 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
+    position: relative;
+}
+
+/* Floating Help Button Styles */
+.floating-help {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.floating-help-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #E2DED0;
+    position: relative;
+}
+
+.floating-help-button::-webkit-details-marker {
+    display: none;
+}
+
+.floating-help-button i {
+    font-size: 20px;
+}
+
+.floating-help-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.floating-help[open] .floating-help-button {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.floating-help .rules-content {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 300px;
+    background: #4E4E50;
+    border: 1px solid #746C70;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating Rules Button Styles */
+.floating-rules {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 1000;
+}
+
+.floating-rules-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #E2DED0;
+    position: relative;
+}
+
+.floating-rules-button::-webkit-details-marker {
+    display: none;
+}
+
+.floating-rules-button i {
+    font-size: 20px;
+}
+
+.floating-rules-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.floating-rules[open] .floating-rules-button {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.floating-rules .rules-content {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 300px;
+    background: #4E4E50;
+    border: 1px solid #746C70;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .baccarat-table {
@@ -250,43 +357,6 @@ body {
     margin-top: 10px;
 }
 
-.rules-section {
-    margin: 15px auto;
-    max-width: 600px;
-    background-color: #4E4E50;
-    border: 1px solid #746C70;
-    border-radius: 8px;
-    font-size: 0.9em;
-    overflow: hidden;
-}
-
-.rules-title {
-    padding: 15px 20px;
-    cursor: pointer;
-    user-select: none;
-    font-weight: bold;
-    text-align: center;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.2);
-    color: #E2DED0;
-}
-
-.rules-title:hover {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-.rules-title::-webkit-details-marker {
-    display: none;
-}
-
-.rules-content {
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
 .rules-list {
     list-style: none;
     padding-left: 10px;
@@ -420,10 +490,37 @@ body {
         min-width: 0;
     }
 
-    .rules-title {
-        min-height: 60px;
-        font-size: 1.2em;
-        padding: 15px;
+    .floating-help, .floating-rules {
+        top: 5px;
+    }
+
+    .floating-help {
+        right: 5px;
+    }
+
+    .floating-rules {
+        left: 5px;
+    }
+
+    .floating-help-button, .floating-rules-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .floating-help-button i, .floating-rules-button i {
+        font-size: 18px;
+    }
+
+    .floating-help .rules-content, .floating-rules .rules-content {
+        width: 280px;
+    }
+
+    .floating-help .rules-content {
+        right: -5px;
+    }
+
+    .floating-rules .rules-content {
+        left: -5px;
     }
 
     .back-section {

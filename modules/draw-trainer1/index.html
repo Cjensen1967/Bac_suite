@@ -4,14 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baccarat Third Card Training</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="game-container">
         <div id="prompt" class="prompt"></div>
 
+        <details class="floating-help" id="instructions-section">
+            <summary class="floating-help-button" title="How to Use">
+                <i class="fas fa-question-circle"></i>
+            </summary>
+            <div class="rules-content">
+                <ul class="rules-list">
+                    <li><strong>Quick Start:</strong></li>
+                    <li class="indented">View hands from dealer's perspective (Banker left, Player right)</li>
+                    <li class="indented">Follow prompts at the top of screen</li>
+                    <li class="indented">Click DRAW or STAND to make decisions</li>
+                    <li class="indented">Track progress with counters at bottom of table</li>
+                    
+                    <li><strong>Decision Steps:</strong></li>
+                    <li class="indented">1. Check for Naturals (8 or 9 total)</li>
+                    <li class="indented">2. Decide if Player draws (0-5 draw, 6-7 stand)</li>
+                    <li class="indented">3. Decide if Banker draws (see rules above)</li>
+                    <li class="indented">4. Choose final winner</li>
+                    
+                    <li><strong>Controls:</strong></li>
+                    <li class="indented">'Drawing Rules' - View complete rules</li>
+                    <li class="indented">'S' or 'Style' - Change card design</li>
+                    <li class="indented">'Reset' - Clear statistics</li>
+                    <li class="indented">'Back' - Exit to menu</li>
+                </ul>
+            </div>
+        </details>
+
         <div class="baccarat-table">
             <div class="banker-area">
+                <details class="floating-rules" id="rules-section">
+                    <summary class="floating-rules-button" title="Drawing Rules">
+                        <i class="fas fa-book"></i>
+                    </summary>
+                    <div class="rules-content">
+                        <ul class="rules-list">
+                            <li><strong>Player Hand:</strong> Total 0-5: Draws a card. Total 6-7: Stands.</li>
+                            <li><strong>Banker Hand:</strong></li>
+                            <li>If Player stands, follows Player rule.</li>
+                            <li>If Player draws a third card:</li>
+                            <li class="indented">Total of 0-2: Always draw</li>
+                            <li class="indented">Total of 3: Draw unless Player's third card is 8</li>
+                            <li class="indented">Total of 4: Draw if Player's third card is 2-7</li>
+                            <li class="indented">Total of 5: Draw if Player's third card is 4-7</li>
+                            <li class="indented">Total of 6: Draw if Player's third card is 6-7</li>
+                            <li class="indented">Total of 7: Stand</li>
+                        </ul>
+                    </div>
+                </details>
                 <h2>Banker</h2>
                 <div class="cards-area">
                     <button class="card-slot draw-btn" id="banker-card-3">
@@ -49,49 +96,6 @@
                 <div class="counter">Peeks: <span id="peeks-count">0</span></div>
             </div>
         </div>
-
-        <details class="rules-section" id="rules-section">
-            <summary class="rules-title">Drawing Rules</summary>
-            <div class="rules-content">
-                <ul class="rules-list">
-                    <li><strong>Player Hand:</strong> Total 0-5: Draws a card. Total 6-7: Stands.</li>
-                    <li><strong>Banker Hand:</strong></li>
-                    <li>If Player stands, follows Player rule.</li>
-                    <li>If Player draws a third card:</li>
-                    <li class="indented">Total of 0-2: Always draw</li>
-                    <li class="indented">Total of 3: Draw unless Player's third card is 8</li>
-                    <li class="indented">Total of 4: Draw if Player's third card is 2-7</li>
-                    <li class="indented">Total of 5: Draw if Player's third card is 4-7</li>
-                    <li class="indented">Total of 6: Draw if Player's third card is 6-7</li>
-                    <li class="indented">Total of 7: Stand</li>
-                </ul>
-            </div>
-        </details>
-
-        <details class="rules-section" id="instructions-section">
-            <summary class="rules-title">How to Use</summary>
-            <div class="rules-content">
-                <ul class="rules-list">
-                    <li><strong>Quick Start:</strong></li>
-                    <li class="indented">View hands from dealer's perspective (Banker left, Player right)</li>
-                    <li class="indented">Follow prompts at the top of screen</li>
-                    <li class="indented">Click DRAW or STAND to make decisions</li>
-                    <li class="indented">Track progress with counters at bottom of table</li>
-                    
-                    <li><strong>Decision Steps:</strong></li>
-                    <li class="indented">1. Check for Naturals (8 or 9 total)</li>
-                    <li class="indented">2. Decide if Player draws (0-5 draw, 6-7 stand)</li>
-                    <li class="indented">3. Decide if Banker draws (see rules above)</li>
-                    <li class="indented">4. Choose final winner</li>
-                    
-                    <li><strong>Controls:</strong></li>
-                    <li class="indented">'Drawing Rules' - View complete rules</li>
-                    <li class="indented">'S' or 'Style' - Change card design</li>
-                    <li class="indented">'Reset' - Clear statistics</li>
-                    <li class="indented">'Back' - Exit to menu</li>
-                </ul>
-            </div>
-        </details>
 
         <div class="back-section">
             <a href="../../index.html" class="back-btn">Back</a>

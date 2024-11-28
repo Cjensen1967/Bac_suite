@@ -10,7 +10,7 @@ class BaccaratTrainer {
         this.currentStep = 'natural';
         this.currentCardSet = 'assets';
         this.initializeButtons();
-        this.initializeRulesSections();
+        this.initializeHelpSections();
         this.dealNewHand(false);
     }
 
@@ -74,7 +74,19 @@ class BaccaratTrainer {
         }
     }
 
-    initializeRulesSections() {
+    initializeHelpSections() {
+        // Add tooltips for mobile view
+        const rulesButton = document.querySelector('#rules-section summary');
+        const instructionsButton = document.querySelector('#instructions-section summary');
+
+        if (rulesButton) {
+            rulesButton.setAttribute('title', 'Drawing Rules');
+        }
+        if (instructionsButton) {
+            instructionsButton.setAttribute('title', 'How to Use');
+        }
+
+        // Initialize peek counter for rules section
         const rulesSection = document.getElementById('rules-section');
         if (rulesSection) {
             rulesSection.removeAttribute('open');
@@ -87,6 +99,7 @@ class BaccaratTrainer {
             });
         }
 
+        // Initialize instructions section
         const instructionsSection = document.getElementById('instructions-section');
         if (instructionsSection) {
             instructionsSection.removeAttribute('open');
@@ -127,10 +140,11 @@ class BaccaratTrainer {
     }
 
     dealNewHand() {
+        // Close help sections when dealing new hand
         const rulesSection = document.getElementById('rules-section');
-        if (rulesSection) {
-            rulesSection.removeAttribute('open');
-        }
+        const instructionsSection = document.getElementById('instructions-section');
+        if (rulesSection) rulesSection.removeAttribute('open');
+        if (instructionsSection) instructionsSection.removeAttribute('open');
 
         this.currentHand = {
             player: [this.drawRandomCard(), this.drawRandomCard()],
