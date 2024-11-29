@@ -9,6 +9,7 @@ class BaccaratTrainer {
         };
         this.currentStep = 'natural';
         this.currentCardSet = 'assets';
+        this.cardSets = ['assets', 'assets2', 'assets3']; // Added assets3
         this.initializeButtons();
         this.initializeHelpSections();
         this.dealNewHand(false);
@@ -115,7 +116,10 @@ class BaccaratTrainer {
     }
 
     switchCardSet() {
-        this.currentCardSet = this.currentCardSet === 'assets' ? 'assets2' : 'assets';
+        // Find current index and move to next set
+        const currentIndex = this.cardSets.indexOf(this.currentCardSet);
+        const nextIndex = (currentIndex + 1) % this.cardSets.length;
+        this.currentCardSet = this.cardSets[nextIndex];
         this.updateCardImages();
     }
 
