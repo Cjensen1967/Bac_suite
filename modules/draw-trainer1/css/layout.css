@@ -1,0 +1,89 @@
+/* Layout components */
+.game-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    padding: 10px;
+    padding-bottom: env(safe-area-inset-bottom, 10px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.baccarat-table {
+    background: #006B3E;
+    border-radius: 0 0 16px 16px;
+    padding: 0 20px 60px 20px;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid #004d2d;
+    border-top: none;
+    position: relative;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    min-height: 0;
+}
+
+.player-area, .banker-area {
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    z-index: 1;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.middle-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    width: 100%;
+    max-width: 300px;
+    padding: 20px 0;
+    height: 100%;
+}
+
+.cards-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.back-section {
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.middle-buttons .back-section {
+    margin-top: auto;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.player-area h2, .banker-area h2 {
+    color: #E2DED0;
+    font-size: 1.4em;
+    margin: 0;
+    background: transparent;
+    padding: 5px 16px;
+    display: inline-block;
+}

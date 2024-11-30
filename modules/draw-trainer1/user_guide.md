@@ -2,9 +2,25 @@
 
 ## Quick Start
 1. The game shows two hands from dealer's view (Banker left, Player right)
-2. Follow the prompts at the bottom of the screen
+2. Follow the prompts at the top of the screen
 3. Use the buttons to make your decisions
-4. Track your progress with the counters at the top
+4. Track your progress with the counters at the bottom
+
+## Interface Layout
+### Desktop View
+- Help button (?) in top-right corner
+- Drawing Rules button in top-left corner
+- Stats counter at the bottom
+- Reset and Style buttons in the control panel
+- Back button to exit to menu
+
+### Mobile View
+- Help button (?) in top-right corner
+- Drawing Rules button in top-left corner
+- Stats counter at the bottom center
+- Reset button in bottom-left corner
+- Style button in bottom-right corner
+- Uses native back functionality
 
 ## Decision Steps
 
@@ -28,10 +44,10 @@
    - Choose: PLAYER WIN, BANKER WIN, or TIE
 
 ## Controls
-- Click 'Drawing Rules' to view the rules
-- Press 'S' or click 'Style' to change card design
-- Click 'Reset' to clear your stats
-- Click 'Back' to exit to menu
+- Click the '?' icon for usage instructions
+- Click the book icon to view drawing rules
+- Click the palette icon to change card design
+- Click the rotate icon to reset your stats
 
 ## Stats Tracking
 - Correct: Right decisions

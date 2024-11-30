@@ -1,0 +1,291 @@
+/* Responsive styles */
+
+/* Portrait mode */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    .game-container {
+        padding: 0;
+        height: 100%;
+    }
+
+    .prompt {
+        font-size: 1em;
+        padding: 8px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .baccarat-table {
+        flex-direction: column;
+        padding: 10px 15px 80px 15px;
+        height: calc(100% - 50px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .stats {
+        position: fixed;
+        bottom: env(safe-area-inset-bottom, 10px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 0.8em;
+        gap: 8px;
+        padding: 3px 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .counter {
+        padding: 3px 5px;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+    }
+
+    .player-area, .banker-area {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .middle-buttons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        margin: 5px auto;
+        padding: 0 10px;
+        max-width: none;
+        height: auto;
+        flex-wrap: wrap;
+    }
+
+    .middle-buttons .decision-btn {
+        width: calc(50% - 10px);
+        flex: 0 0 auto;
+        font-size: 0.85em;
+        padding: 8px 12px;
+        min-width: 0;
+    }
+
+    .middle-buttons .back-section {
+        display: none;
+    }
+
+    .player-area h2, .banker-area h2 {
+        font-size: 1.2em;
+        margin: 0;
+        padding: 5px 16px;
+    }
+
+    .card-slot {
+        width: 70px;
+        height: 102px;
+    }
+
+    .vertical-text {
+        font-size: 1em;
+        letter-spacing: 1px;
+    }
+
+    .back-btn {
+        display: none;
+    }
+
+    /* Floating corner buttons styling */
+    .reset-btn, .card-style-btn {
+        position: fixed;
+        bottom: env(safe-area-inset-bottom, 10px);
+        width: 36px;
+        height: 36px;
+        font-size: 1em;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .reset-btn {
+        left: 10px;
+    }
+
+    .card-style-btn {
+        right: 10px;
+    }
+
+    .reset-btn:hover, .card-style-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .floating-help, .floating-rules {
+        top: 5px;
+    }
+
+    .floating-help {
+        right: 5px;
+    }
+
+    .floating-rules {
+        left: 5px;
+    }
+
+    .floating-help-button, .floating-rules-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .floating-help-button i, .floating-rules-button i {
+        font-size: 18px;
+    }
+
+    .floating-help .rules-content, .floating-rules .rules-content {
+        width: 280px;
+    }
+
+    .floating-help .rules-content {
+        right: -5px;
+    }
+
+    .floating-rules .rules-content {
+        left: -5px;
+    }
+}
+
+/* Mobile landscape mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    body {
+        align-items: center;
+    }
+
+    .game-container {
+        padding: 0;
+        max-width: 100%;
+        height: 100%;
+    }
+
+    .prompt {
+        font-size: 1em;
+        padding: 6px;
+        margin-bottom: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .baccarat-table {
+        padding: 10px 20px 40px;
+        height: calc(100% - 50px);
+        margin-bottom: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .player-area, .banker-area {
+        width: 45%;
+        padding: 5px;
+        gap: 5px;
+    }
+
+    .card-slot {
+        width: 80px;
+        height: 116px;
+    }
+
+    .cards-area {
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+
+    .middle-buttons {
+        margin-top: 10px;
+        gap: 8px;
+    }
+
+    .middle-buttons .decision-btn {
+        width: 110px;
+        padding: 8px;
+        font-size: 0.9em;
+        min-width: 0;
+    }
+
+    .middle-buttons .back-section {
+        display: none;
+    }
+
+    .stats {
+        bottom: 5px;
+        font-size: 0.8em;
+        padding: 4px 10px;
+    }
+
+    .player-area h2, .banker-area h2 {
+        font-size: 1.1em;
+        padding: 5px 12px;
+        margin: 0;
+    }
+
+    .stand-btn, .decision-btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+        min-width: 90px;
+        margin: 0;
+    }
+
+    .back-btn {
+        display: none;
+    }
+
+    /* Floating corner buttons styling */
+    .reset-btn, .card-style-btn {
+        position: fixed;
+        bottom: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9em;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .reset-btn {
+        left: 10px;
+    }
+
+    .card-style-btn {
+        right: 10px;
+    }
+
+    .reset-btn:hover, .card-style-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .floating-help-button, .floating-rules-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .floating-help-button i, .floating-rules-button i {
+        font-size: 16px;
+    }
+
+    .vertical-text {
+        font-size: 1em;
+    }
+}

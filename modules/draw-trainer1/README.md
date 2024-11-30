@@ -5,23 +5,34 @@ An interactive web application to help dealers and players learn and practice Ba
 ## Features
 
 - Interactive card display with realistic playing cards
-- Two different card face designs (toggle with button)
+- Two different card face designs (toggle with style button)
 - Real-time feedback on decisions
 - Performance tracking (correct/incorrect/total hands)
 - Clear display of Banker's third card drawing rules
-- Responsive design that works on all devices
+- Floating help and rules buttons for easy access
+- Responsive design optimized for all devices:
+  - Desktop: Full layout with integrated controls
+  - Mobile: Edge-to-edge design with corner controls
+  - Landscape: Optimized for wider viewing
 - No installation required - runs in any modern web browser
 - Step-by-step guidance for learning the rules
 
-## How to Use
+## Interface Layout
 
-1. The trainer will display two cards each for Player and Banker hands
-2. Determine if there's a natural win (8 or 9 total)
-3. If no natural, decide if the Player should draw based on their total
-4. Finally, determine if the Banker should draw based on their total and the Player's third card (if any)
-5. Get immediate feedback on your decisions
-6. Track your progress with the score counter
-7. Use the toggle button to switch between different card face designs
+### Desktop View
+- Help button (?) in top-right corner
+- Drawing Rules button in top-left corner
+- Stats counter at the bottom
+- Integrated control panel with reset, style, and back buttons
+
+### Mobile View
+- Help button (?) in top-right corner
+- Drawing Rules button in top-left corner
+- Stats counter at bottom center
+- Reset button in bottom-left corner
+- Style button in bottom-right corner
+- Edge-to-edge design for immersive experience
+- Uses native back functionality
 
 ## Rules Reference
 
@@ -78,4 +89,4 @@ You can use your own card designs with this module. To ensure compatibility:
    - Resolution: Match the existing card dimensions for consistent display
    - File Location: Place in either `assets/` or `assets2/` directory
 
-The toggle button will automatically work with any card set that follows these specifications. For complete customization details, see the main project README.
+The style button will automatically work with any card set that follows these specifications. For complete customization details, see the main project README.

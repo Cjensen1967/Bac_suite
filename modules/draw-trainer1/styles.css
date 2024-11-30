@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    touch-action: none;
+}
+
+html {
+    height: 100%;
+    width: 100%;
 }
 
 body {
@@ -9,19 +15,28 @@ body {
     background-color: #647C90;
     color: #E2DED0;
     line-height: 1.6;
-    min-height: 100vh;
+    height: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
     overflow: hidden;
+    position: fixed;
+    width: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .game-container {
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0;
     padding: 10px;
+    padding-bottom: env(safe-area-inset-bottom, 10px);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .prompt {
@@ -51,38 +66,42 @@ body {
 .baccarat-table {
     background: #006B3E;
     border-radius: 0 0 16px 16px;
-    padding: 0 20px 20px 20px;
+    padding: 0 20px 60px 20px;
     box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
     border: 2px solid #004d2d;
     border-top: none;
     position: relative;
     margin: 0;
-    min-height: 400px;
+    flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
+    min-height: 0;
 }
 
 .stats {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 80px;
+    bottom: 10px;
     display: flex;
     justify-content: center;
-    gap: 15px;
-    padding: 5px 15px;
+    gap: 10px;
+    padding: 5px 10px;
     white-space: nowrap;
     z-index: 2;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
+    width: auto;
+    flex-wrap: wrap;
 }
 
 .counter {
     color: #fff;
     font-size: 0.9em;
+    padding: 2px 5px;
 }
 
 .counter span {
@@ -106,7 +125,7 @@ body {
     flex-direction: column;
     gap: 15px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 0;
     width: 100%;
     max-width: 300px;
@@ -443,6 +462,7 @@ body {
 @media screen and (max-width: 768px) and (orientation: portrait) {
     .game-container {
         padding: 5px;
+        height: 100%;
     }
 
     .prompt {
@@ -452,27 +472,29 @@ body {
 
     .baccarat-table {
         flex-direction: column;
-        padding: 0 15px 60px 15px;
-        min-height: 600px;
+        padding: 10px 15px 80px 15px;
+        height: calc(100% - 50px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .stats {
-        position: absolute;
-        bottom: 15px;
+        position: fixed;
+        bottom: env(safe-area-inset-bottom, 10px);
         left: 50%;
         transform: translateX(-50%);
         width: auto;
-        font-size: 0.75em;
+        font-size: 0.8em;
         gap: 8px;
         padding: 3px 5px;
         flex-wrap: wrap;
         justify-content: center;
-        background: none;
     }
 
     .counter {
         padding: 3px 5px;
-        white-space: nowrap;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
     }
 
     .player-area, .banker-area {
@@ -486,20 +508,24 @@ body {
         gap: 10px;
         margin: 5px auto;
         padding: 0 10px;
-        max-width: 300px;
+        max-width: none;
         height: auto;
+        flex-wrap: wrap;
     }
 
     .middle-buttons .decision-btn {
-        width: auto;
-        flex: 1;
-        max-width: 120px;
+        width: calc(50% - 10px);
+        flex: 0 0 auto;
         font-size: 0.85em;
         padding: 8px 12px;
+        min-width: 0;
     }
 
     .middle-buttons .back-section {
-        display: none;
+        width: 100%;
+        margin: 5px 0;
+        justify-content: center;
+        display: flex;
     }
 
     .player-area h2, .banker-area h2 {
@@ -518,17 +544,11 @@ body {
         letter-spacing: 1px;
     }
 
-    .stand-btn {
-        width: auto;
-        min-width: 0;
-        padding: 10px;
-        font-size: 0.9em;
-    }
-
-    .decision-btn {
-        padding: 10px;
-        font-size: 0.9em;
-        min-width: 0;
+    .back-btn, .reset-btn, .card-style-btn {
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+        font-size: 1em;
     }
 
     .floating-help, .floating-rules {
@@ -563,17 +583,6 @@ body {
     .floating-rules .rules-content {
         left: -5px;
     }
-
-    .back-section {
-        gap: 5px;
-    }
-
-    .back-btn, .reset-btn, .card-style-btn {
-        padding: 8px;
-        width: 36px;
-        height: 36px;
-        font-size: 1em;
-    }
 }
 
 /* Mobile landscape mode */
@@ -585,8 +594,7 @@ body {
     .game-container {
         padding: 5px;
         max-width: 100%;
-        max-height: 100vh;
-        overflow: hidden;
+        height: 100%;
     }
 
     .prompt {
@@ -597,8 +605,7 @@ body {
 
     .baccarat-table {
         padding: 10px 20px 40px;
-        min-height: 0;
-        height: calc(100vh - 100px);
+        height: calc(100% - 50px);
         margin-bottom: 5px;
     }
 

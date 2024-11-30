@@ -1,0 +1,144 @@
+/* UI Components */
+.prompt {
+    font-size: 1.2em;
+    color: #E2DED0;
+    text-align: center;
+    font-weight: 500;
+    padding: 10px;
+    background: #006B3E;
+    border: 2px solid #004d2d;
+    border-bottom: none;
+    border-radius: 16px 16px 0 0;
+    margin: 0;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 2;
+}
+
+.prompt.correct {
+    background-color: #5B8A4B;
+}
+
+.prompt.incorrect {
+    background-color: #B4432C;
+}
+
+.stats {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    width: auto;
+    flex-wrap: wrap;
+}
+
+.counter {
+    color: #fff;
+    font-size: 0.9em;
+    padding: 2px 5px;
+}
+
+.counter span {
+    margin-left: 5px;
+}
+
+.stand-btn {
+    display: none;
+    padding: 12px 24px;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    color: #E2DED0;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    min-width: 140px;
+    margin-bottom: 5px;
+}
+
+.stand-btn.active {
+    display: block;
+}
+
+.stand-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.stand-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.decision-btn {
+    padding: 12px 24px;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    color: #E2DED0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: none;
+}
+
+.decision-btn.active {
+    display: block;
+}
+
+.decision-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.back-btn, .reset-btn, .card-style-btn {
+    padding: 12px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    background-color: #647C90;
+    color: #E2DED0;
+    text-decoration: none;
+    border: 1px solid #746C70;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-btn {
+    background-color: #4E4E50;
+}
+
+.back-btn:hover, .reset-btn:hover, .card-style-btn:hover {
+    background-color: #746C70;
+    transform: translateY(-1px);
+}
+
+#banker-win, #player-win {
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+}
