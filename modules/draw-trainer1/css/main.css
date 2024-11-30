@@ -1,19 +1,19 @@
 /* Main CSS file that imports all modular CSS files */
 
 /* Base styles and reset */
-@import 'base.css?v=1';
+@import './base.css?v=1';
 
 /* Layout components */
-@import 'layout.css?v=1';
+@import './layout.css?v=1';
 
 /* Card-specific styles */
-@import 'cards.css?v=1';
+@import './cards.css?v=1';
 
 /* UI Components */
-@import 'components.css?v=1';
+@import './components.css?v=1';
 
 /* Floating elements and overlays */
-@import 'floating.css?v=1';
+@import './floating.css?v=1';
 
 /* Responsive styles */
-@import 'responsive.css?v=1';
+@import './responsive.css?v=1';
