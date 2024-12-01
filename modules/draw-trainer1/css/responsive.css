@@ -1,5 +1,203 @@
 /* Responsive styles */
 
+/* Desktop mode */
+@media screen and (min-width: 769px) {
+    .game-container {
+        max-width: 1200px;
+        padding: 20px;
+        min-height: 800px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .prompt {
+        font-size: 1.4em;
+        padding: 15px 25px;
+        border-width: 3px;
+    }
+
+    .baccarat-table {
+        padding: 30px 40px 80px 40px;
+        gap: 15px;
+        min-height: 700px;
+        align-items: flex-start;
+        border-width: 3px;
+        box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.4);
+        flex: 1;
+    }
+
+    .player-area, .banker-area {
+        width: 45%;
+        padding: 20px;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-slot {
+        width: 120px;
+        height: 175px;
+        border: 2px dashed rgba(255, 255, 255, 0.2);
+    }
+
+    .card-slot img {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        max-width: 100%;
+        height: auto;
+    }
+
+    .cards-area {
+        gap: 15px;
+        margin: 15px 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .middle-buttons {
+        padding: 20px 0;
+        gap: 15px;
+        width: 10%;
+        min-width: 140px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    #tie-action, #no-natural-action {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .stats {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 30px;
+        padding: 12px 25px;
+        gap: 30px;
+        display: flex;
+        justify-content: center;
+        z-index: 10;
+        background: none;
+        border: none;
+    }
+
+    .counter {
+        font-size: 1.2em;
+        padding: 5px 12px;
+        background: none;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .counter:hover {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .player-area h2, .banker-area h2 {
+        font-size: 1.8em;
+        padding: 12px 30px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin-bottom: 10px;
+    }
+
+    .stand-btn, .decision-btn {
+        padding: 15px 30px;
+        font-size: 1.1em;
+        min-width: 180px;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(4px);
+        letter-spacing: 1px;
+    }
+
+    .stand-btn:hover, .decision-btn:hover {
+        background: rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    #banker-win, #player-win {
+        position: relative;
+        width: 100%;
+        padding: 18px 30px;
+        font-size: 1.2em;
+        background: rgba(0, 0, 0, 0.4);
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        transition: all 0.3s ease;
+        margin-top: 10px;
+    }
+
+    #banker-win:hover, #player-win:hover {
+        background: rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+
+    .reset-btn, .card-style-btn {
+        width: 55px;
+        height: 55px;
+        font-size: 1.4em;
+        position: fixed;
+        bottom: 25px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        backdrop-filter: blur(4px);
+        transition: all 0.3s ease;
+        z-index: 20;
+    }
+
+    .reset-btn:hover, .card-style-btn:hover {
+        background: rgba(0, 0, 0, 0.8);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .reset-btn {
+        left: 25px;
+    }
+
+    .card-style-btn {
+        right: 25px;
+    }
+
+    .floating-help, .floating-rules {
+        position: fixed;
+        top: 25px;
+        z-index: 30;
+    }
+
+    .floating-help {
+        right: 25px;
+    }
+
+    .floating-rules {
+        left: 25px;
+    }
+
+    .floating-help-button, .floating-rules-button {
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .floating-help-button:hover, .floating-rules-button:hover {
+        background: rgba(0, 0, 0, 0.8);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-2px);
+    }
+}
+
 /* Portrait mode */
 @media screen and (max-width: 768px) and (orientation: portrait) {
     .game-container {
