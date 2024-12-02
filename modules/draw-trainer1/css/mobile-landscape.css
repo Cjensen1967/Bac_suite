@@ -1,0 +1,205 @@
+/* Mobile landscape mode */
+
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+    }
+
+    .game-container {
+        padding: 0;
+        max-width: 100%;
+        min-height: 100%;
+    }
+
+    .prompt {
+        font-size: 1em;
+        padding: 6px;
+        margin-bottom: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: #006B3E;
+    }
+
+    .baccarat-table {
+        padding: 10px 20px;
+        min-height: calc(100vh - 50px);
+        margin-bottom: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        position: relative;
+    }
+
+    .player-area, .banker-area {
+        width: 45%;
+        padding: 5px;
+        gap: 5px;
+        z-index: 2;
+    }
+
+    .action-button-container {
+        position: relative;
+        height: 40px;
+        width: 100%;
+        max-width: 140px;
+        margin: 0 auto;
+    }
+
+    .card-slot {
+        width: 80px;
+        height: 116px;
+    }
+
+    .cards-area {
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+
+    .middle-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        margin: 0 auto;
+        width: 110px;
+        padding: 0;
+        height: auto;
+        margin-top: 20px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .middle-action-container {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 100%;
+    }
+
+    .middle-action-container .decision-btn {
+        width: 100%;
+        padding: 8px;
+        font-size: 0.9em;
+        min-width: 90px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .middle-action-container .decision-btn.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .stats {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5px;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        margin: 0;
+        font-size: 0.75em;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 4px 8px;
+        border-radius: 4px;
+        z-index: 1;
+    }
+
+    .counter {
+        text-align: center;
+        padding: 2px 6px;
+        white-space: nowrap;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+    }
+
+    .player-area h2, .banker-area h2 {
+        font-size: 1.1em;
+        padding: 5px 12px;
+        margin: 0;
+    }
+
+    .stand-btn, .decision-btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 8px;
+        font-size: 0.9em;
+        min-width: 90px;
+        margin: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .stand-btn.active, .decision-btn.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .reset-btn, .card-style-btn {
+        position: fixed;
+        bottom: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 0.9em;
+        background: rgba(0, 0, 0, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .reset-btn {
+        left: 10px;
+    }
+
+    .card-style-btn {
+        right: 10px;
+    }
+
+    .floating-help-button, .floating-rules-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .floating-help-button i, .floating-rules-button i {
+        font-size: 16px;
+    }
+
+    .vertical-text {
+        font-size: 1em;
+    }
+
+    .floating-help .rules-content, .floating-rules .rules-content {
+        max-height: 80vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .floating-help, .floating-rules {
+        position: fixed;
+        top: 5px;
+        z-index: 1000;
+    }
+
+    .floating-help {
+        right: 5px;
+    }
+
+    .floating-rules {
+        left: 5px;
+    }
+}
