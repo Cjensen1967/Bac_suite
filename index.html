@@ -53,6 +53,12 @@
         <p>Released into the public domain under The Unlicense. Card assets by DaveKun (CC BY 4.0) and SirDraco65 (CC0).</p>
     </footer>
 
+    <script>
+        // Check if disclaimer has been accepted
+        if (!sessionStorage.getItem('baccarat_disclaimer_accepted')) {
+            window.location.href = 'disclaimer.html';
+        }
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
