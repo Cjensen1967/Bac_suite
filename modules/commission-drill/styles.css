@@ -4,6 +4,7 @@
 
 :root {
     /* Primary Colors */
+    --primary-darker: #3E3E40;
     --primary-dark: #4E4E50;
     --primary-medium: #647C90;
     --primary-base: #647C90;
@@ -12,6 +13,7 @@
     /* Secondary Colors */
     --soft-gray: #4E4E50;
     --muted-ivory: #E2DED0;
+    --text-white: #FFFFFF;
 
     /* Status Colors - Keeping these for functional feedback */
     --success-color: #5B8A4B;
@@ -80,19 +82,19 @@ header h1 {
 }
 
 .back-btn {
-    color: var(--muted-ivory);
+    color: var(--text-white);
     text-decoration: none;
     padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--primary-medium);
+    border: 1px solid var(--primary-light);
     border-radius: 4px;
     font-weight: var(--font-medium);
-    background-color: transparent;
+    background-color: var(--primary-darker);
     font-size: var(--text-sm);
     transition: all 0.3s ease;
 }
 
 .back-btn:hover {
-    background-color: var(--primary-medium);
+    background-color: var(--primary-light);
 }
 
 .content {
@@ -209,8 +211,8 @@ input[type="number"]:disabled {
     display: inline-block;
     padding: var(--space-2);
     margin: 0;
-    background-color: var(--primary-dark);
-    color: var(--muted-ivory);
+    background-color: var(--primary-darker);
+    color: var(--text-white);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -223,11 +225,11 @@ input[type="number"]:disabled {
 }
 
 .btn:hover:not(:disabled) {
-    background-color: var(--primary-medium);
+    background-color: var(--primary-light);
 }
 
 .btn:disabled {
-    background-color: var(--primary-light);
+    background-color: var(--primary-medium);
     cursor: not-allowed;
     opacity: 0.7;
 }

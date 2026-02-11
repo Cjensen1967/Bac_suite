@@ -1,11 +1,13 @@
 /* Variables from style guide */
 :root {
+    --primary-darker: #3E3E40;
     --primary-dark: #4E4E50;
     --primary-medium: #647C90;
     --primary-base: #647C90;
     --primary-light: #746C70;
     --soft-gray: #4E4E50;
     --muted-ivory: #E2DED0;
+    --text-white: #FFFFFF;
     --bg-section: #E2DED0;
     --bg-highlight: rgba(100, 124, 144, 0.1);
     
@@ -46,14 +48,20 @@ header h1 {
 
 /* Navigation */
 .back-button {
-    color: var(--muted-ivory);
+    color: var(--text-white);
     text-decoration: none;
     display: inline-block;
-    padding: var(--space-2) 0;
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--primary-darker);
+    border: 1px solid var(--primary-light);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
 .back-button:hover {
-    text-decoration: underline;
+    background-color: var(--primary-light);
+    text-decoration: none;
 }
 
 /* Content sections */

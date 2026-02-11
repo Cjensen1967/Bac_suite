@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#647C90">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Baccarat Training - Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Fixed prompt at top -->
+        <div id="prompt" class="prompt">Is there a natural win?</div>
+
+        <!-- Score display at top -->
+        <div class="score-display">
+            <span>Correct: <span id="correct-count">0</span></span>
+            <span>Wrong: <span id="incorrect-count">0</span></span>
+            <span>Hands: <span id="hands-count">0</span></span>
+            <span>Peeks: <span id="peeks-count">0</span></span>
+        </div>
+
+        <!-- Main game area -->
+        <div class="game-table">
+            <!-- Banker area (top) -->
+            <div class="hand-area banker-area">
+                <h2 class="hand-label">Banker</h2>
+                <div class="cards-container">
+                    <button class="card-slot draw-btn" id="banker-card-3">
+                        <span class="draw-text">DRAW</span>
+                    </button>
+                    <div class="card-slot" id="banker-card-1"></div>
+                    <div class="card-slot" id="banker-card-2"></div>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn stand-btn" id="banker-stand">STAND</button>
+                    <button class="action-btn decision-btn" id="banker-win">BANKER WIN</button>
+                </div>
+            </div>
+
+            <!-- Middle controls -->
+            <div class="middle-controls">
+                <button class="control-btn" id="tie-action">TIE</button>
+                <button class="control-btn" id="no-natural-action">NO NATURALS</button>
+            </div>
+
+            <!-- Player area (bottom) -->
+            <div class="hand-area player-area">
+                <h2 class="hand-label">Player</h2>
+                <div class="cards-container">
+                    <div class="card-slot" id="player-card-1"></div>
+                    <div class="card-slot" id="player-card-2"></div>
+                    <button class="card-slot draw-btn" id="player-card-3">
+                        <span class="draw-text">DRAW</span>
+                    </button>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn stand-btn" id="player-stand">STAND</button>
+                    <button class="action-btn decision-btn" id="player-win">PLAYER WIN</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom controls -->
+        <div class="bottom-controls">
+            <button class="bottom-btn" onclick="window.history.back()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button class="bottom-btn" id="reset-scores">
+                <i class="fas fa-rotate-right"></i> Reset
+            </button>
+            <button class="bottom-btn" id="toggle-card-style">
+                <i class="fas fa-palette"></i> Style
+            </button>
+        </div>
+
+        <!-- Floating help buttons -->
+        <button class="floating-btn help-btn" id="help-toggle">
+            <i class="fas fa-question-circle"></i>
+        </button>
+        <button class="floating-btn rules-btn" id="rules-toggle">
+            <i class="fas fa-book"></i>
+        </button>
+
+        <!-- Help overlay (hidden by default) -->
+        <div class="overlay" id="help-overlay">
+            <div class="overlay-content">
+                <div class="overlay-header">
+                    <h3>How to Use</h3>
+                    <button class="close-btn" id="help-close">&times;</button>
+                </div>
+                <div class="overlay-body">
+                    <ul>
+                        <li><strong>Quick Start:</strong></li>
+                        <li>• View hands from dealer's perspective</li>
+                        <li>• Follow prompts at the top of screen</li>
+                        <li>• Click DRAW or STAND to make decisions</li>
+                        <li>• Track progress with counters at top</li>
+                        
+                        <li><strong>Decision Steps:</strong></li>
+                        <li>• 1. Check for Naturals (8 or 9 total)</li>
+                        <li>• 2. Decide if Player draws (0-5 draw, 6-7 stand)</li>
+                        <li>• 3. Decide if Banker draws (see rules)</li>
+                        <li>• 4. Choose final winner</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rules overlay (hidden by default) -->
+        <div class="overlay" id="rules-overlay">
+            <div class="overlay-content">
+                <div class="overlay-header">
+                    <h3>Drawing Rules</h3>
+                    <button class="close-btn" id="rules-close">&times;</button>
+                </div>
+                <div class="overlay-body">
+                    <ul>
+                        <li><strong>Player Hand:</strong> Total 0-5: Draws a card. Total 6-7: Stands.</li>
+                        <li><strong>Banker Hand:</strong></li>
+                        <li>• If Player stands, follows Player rule.</li>
+                        <li>• If Player draws a third card:</li>
+                        <li>&nbsp;&nbsp;- Total of 0-2: Always draw</li>
+                        <li>&nbsp;&nbsp;- Total of 3: Draw unless Player's third card is 8</li>
+                        <li>&nbsp;&nbsp;- Total of 4: Draw if Player's third card is 2-7</li>
+                        <li>&nbsp;&nbsp;- Total of 5: Draw if Player's third card is 4-7</li>
+                        <li>&nbsp;&nbsp;- Total of 6: Draw if Player's third card is 6-7</li>
+                        <li>&nbsp;&nbsp;- Total of 7: Stand</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if disclaimer has been accepted
+        if (!sessionStorage.getItem('baccarat_disclaimer_accepted')) {
+            window.location.href = '../../disclaimer.html';
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

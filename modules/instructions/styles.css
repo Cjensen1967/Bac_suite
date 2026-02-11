@@ -4,6 +4,7 @@
 
 :root {
     /* Primary Colors */
+    --primary-darker: #3E3E40;
     --primary-dark: #4E4E50;
     --primary-medium: #647C90;
     --primary-base: #647C90;
@@ -12,6 +13,7 @@
     /* Secondary Colors */
     --soft-gray: #4E4E50;
     --muted-ivory: #E2DED0;
+    --text-white: #FFFFFF;
 
     /* Background Colors */
     --bg-section: #E2DED0;
@@ -91,21 +93,21 @@ header h1 {
 
 .back-btn {
     font-family: var(--font-primary);
-    color: var(--muted-ivory);
+    color: var(--text-white);
     text-decoration: none;
     padding: var(--space-1) var(--space-2);
-    border: 1px solid var(--primary-medium);
+    border: 1px solid var(--primary-light);
     border-radius: 4px;
     transition: all 0.3s ease;
     font-weight: var(--font-medium);
     font-size: var(--text-sm);
-    background-color: transparent;
+    background-color: var(--primary-darker);
     white-space: nowrap;
 }
 
 .back-btn:hover {
-    background-color: var(--primary-medium);
-    color: var(--muted-ivory);
+    background-color: var(--primary-light);
+    color: var(--text-white);
 }
 
 .content {
@@ -243,7 +245,7 @@ header h1 {
     }
 
     .back-btn {
-        padding: var(--space-2) var(--space-4);
+        padding: var(--space-2) var(--space-3);
         font-size: var(--text-base);
     }
 

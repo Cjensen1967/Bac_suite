@@ -1,0 +1,328 @@
+/* Responsive CSS for Draw Trainer 1 - Mobile Improvements */
+
+/* Mobile-first approach - Default styles for mobile */
+@media screen and (max-width: 768px) {
+    .game-container {
+        padding: 5px;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    /* Transform to vertical layout on mobile */
+    .baccarat-table {
+        flex-direction: column;
+        padding: 8px 8px 5px 8px;
+        gap: 8px;
+        min-height: auto;
+        justify-content: flex-start;
+        align-items: stretch;
+    }
+    
+    /* Stack player areas vertically */
+    .player-area, .banker-area {
+        width: 100%;
+        padding: 4px;
+        margin: 0;
+        order: 2; /* Default order for player */
+    }
+    
+    .banker-area {
+        order: 1; /* Banker goes first (top) */
+    }
+    
+    /* Headers for mobile - both rotated for dealer perspective */
+    .banker-area h2 {
+        transform: rotate(180deg);
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        padding: 6px 10px;
+    }
+    
+    .player-area h2 {
+        transform: rotate(180deg);
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        padding: 6px 10px;
+    }
+    
+    /* Adjust card layout for mobile */
+    .cards-area {
+        gap: 6px;
+        margin-bottom: 6px;
+        justify-content: center;
+    }
+    
+    .card-slot {
+        width: 55px;
+        height: 80px;
+        flex-shrink: 0;
+    }
+    
+    /* Middle section improvements */
+    .middle-buttons {
+        order: 3;
+        width: 100%;
+        max-width: none;
+        padding: 6px 0;
+        gap: 6px;
+        margin: 0;
+    }
+    
+    .middle-action-container {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+    }
+    
+    /* Action buttons container - make them stack vertically on mobile */
+    .action-button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 5px;
+        width: 100%;
+    }
+    
+    /* Improve button sizing for mobile */
+    .decision-btn, .stand-btn, .draw-btn {
+        padding: 10px 15px;
+        font-size: 0.95em;
+        min-height: 40px;
+        width: 100%;
+        border-radius: 6px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    /* Draw button improvements - preserve original functionality */
+    .card-slot.draw-btn {
+        min-height: 80px; /* Match card height */
+        width: 55px;
+        /* Preserve original pointer-events logic */
+        pointer-events: none;
+    }
+    
+    .card-slot.draw-btn.active {
+        pointer-events: auto;
+    }
+    
+    .draw-btn .vertical-text {
+        /* Preserve original centering transform */
+        transform: translate(-50%, -50%);
+        font-size: 0.9em;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.2;
+    }
+    
+    /* Stats positioning and sizing */
+    .stats {
+        position: fixed;
+        bottom: env(safe-area-inset-bottom, 5px);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        background: rgba(78, 78, 80, 0.95);
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 0.75em;
+        z-index: 999; /* Lower z-index to avoid blocking buttons */
+        border: 1px solid #746C70;
+        backdrop-filter: blur(10px);
+    }
+    
+    .counter {
+        white-space: nowrap;
+        color: #E2DED0;
+    }
+    
+    /* Floating controls - convert to mobile-friendly positioning */
+    .floating-help, .floating-rules {
+        position: fixed;
+        bottom: 70px;
+        right: 10px;
+        z-index: 998; /* Lower z-index to avoid blocking game buttons */
+        max-width: 90vw;
+    }
+    
+    .floating-help {
+        bottom: 120px;
+    }
+    
+    .floating-help-button, .floating-rules-button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4em;
+        background: #647C90;
+        border: 2px solid #746C70;
+        color: #E2DED0;
+    }
+    
+    /* Rules content mobile optimization */
+    .rules-content {
+        max-height: 50vh;
+        overflow-y: auto;
+        background: rgba(78, 78, 80, 0.98);
+        backdrop-filter: blur(10px);
+        border: 1px solid #746C70;
+        border-radius: 12px;
+        padding: 15px;
+        margin-top: 5px;
+        font-size: 0.9em;
+    }
+    
+    .rules-list li {
+        margin-bottom: 6px;
+        line-height: 1.4;
+    }
+    
+    .rules-list li.indented {
+        margin-left: 15px;
+        font-size: 0.85em;
+    }
+    
+    /* Bottom controls */
+    .reset-btn, .card-style-btn {
+        position: fixed;
+        bottom: env(safe-area-inset-bottom, 10px);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.2em;
+        z-index: 997; /* Lower z-index to avoid blocking game buttons */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .reset-btn {
+        left: 10px;
+    }
+    
+    .card-style-btn {
+        left: 70px;
+    }
+    
+    /* Prompt styling for mobile - fixed centering and z-index */
+    .prompt {
+        position: fixed;
+        top: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.9);
+        color: #E2DED0;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.9em;
+        text-align: center;
+        z-index: 996; /* Lower z-index, non-interactive element */
+        max-width: 90vw;
+        border: 1px solid #746C70;
+        backdrop-filter: blur(10px);
+        pointer-events: none; /* Ensure it doesn't block interactions */
+    }
+    
+    /* Ensure content doesn't overlap with fixed elements */
+    .baccarat-table {
+        padding-top: 45px; /* Space for prompt */
+        padding-bottom: 60px; /* Space for stats */
+        margin-bottom: 0;
+    }
+}
+
+/* Tablet portrait adjustments */
+@media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    .card-slot {
+        width: 85px;
+        height: 123px;
+    }
+    
+    .decision-btn, .stand-btn {
+        font-size: 1.2em;
+        padding: 18px 25px;
+    }
+    
+    .stats {
+        font-size: 0.95em;
+        gap: 20px;
+        padding: 10px 20px;
+    }
+}
+
+/* Large mobile landscape */
+@media screen and (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+    .baccarat-table {
+        flex-direction: row;
+        padding: 10px 15px 60px 15px;
+    }
+    
+    .player-area, .banker-area {
+        width: 40%;
+    }
+    
+    .middle-buttons {
+        width: 20%;
+        padding: 5px;
+    }
+    
+    .card-slot {
+        width: 60px;
+        height: 87px;
+    }
+    
+    .decision-btn, .stand-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        min-height: 35px;
+    }
+    
+    .prompt {
+        top: 5px;
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+    
+    .baccarat-table {
+        padding-top: 45px;
+        padding-bottom: 60px;
+    }
+}
+
+/* Very small screens */
+@media screen and (max-width: 480px) {
+    .card-slot {
+        width: 65px;
+        height: 94px;
+    }
+    
+    .cards-area {
+        gap: 6px;
+    }
+    
+    .decision-btn, .stand-btn {
+        font-size: 1em;
+        padding: 12px 15px;
+        min-height: 45px;
+    }
+    
+    .stats {
+        gap: 10px;
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+    
+    .counter {
+        font-size: 0.85em;
+    }
+    
+    .floating-help, .floating-rules {
+        right: 5px;
+        max-width: 95vw;
+    }
+}

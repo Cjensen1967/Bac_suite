@@ -438,7 +438,7 @@ body {
     font-size: 1.2em;
     font-family: 'Arial Narrow', Arial, sans-serif;
     background-color: #647C90;
-    color: #E2DED0;
+    color: #FFFFFF;
     text-decoration: none;
     border: 1px solid #746C70;
     border-radius: 5px;
@@ -450,7 +450,7 @@ body {
 }
 
 .back-btn {
-    background-color: #4E4E50;
+    background-color: #3E3E40;
 }
 
 .back-btn:hover, .reset-btn:hover, .card-style-btn:hover {

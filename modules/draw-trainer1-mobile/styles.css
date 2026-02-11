@@ -1,0 +1,442 @@
+/* Mobile-First CSS for Draw Trainer 1 Mobile */
+
+:root {
+    /* Primary Colors */
+    --primary-darker: #3E3E40;
+    --primary-dark: #4E4E50;
+    --primary-medium: #647C90;
+    --primary-light: #746C70;
+    
+    /* Secondary Colors */
+    --text-white: #FFFFFF;
+    --muted-ivory: #E2DED0;
+    
+    /* Game Colors */
+    --table-green: #006B3E;
+    
+    /* Status Colors */
+    --success-color: #5B8A4B;
+    --error-color: #B4432C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--primary-medium);
+    color: var(--muted-ivory);
+    line-height: 1.4;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fixed prompt at top */
+.prompt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: var(--muted-ivory);
+    text-align: center;
+    padding: 8px 15px;
+    font-size: 0.95em;
+    font-weight: bold;
+    z-index: 1000;
+    border-bottom: 1px solid var(--primary-light);
+    backdrop-filter: blur(10px);
+}
+
+/* Score display */
+.score-display {
+    position: fixed;
+    top: 42px;
+    left: 0;
+    right: 0;
+    background: rgba(78, 78, 80, 0.95);
+    color: var(--muted-ivory);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px 10px;
+    font-size: 0.8em;
+    z-index: 999;
+    border-bottom: 1px solid var(--primary-light);
+    backdrop-filter: blur(10px);
+}
+
+.score-display span {
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+/* Main game area */
+.game-table {
+    margin-top: 85px; /* Space for fixed elements */
+    margin-bottom: 60px; /* Space for bottom controls */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: var(--table-green);
+    background-image: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 100%),
+                      repeating-linear-gradient(45deg, transparent 0%, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px);
+    border-radius: 15px;
+    flex: 1;
+    position: relative;
+    border: 2px solid #004d2d;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Hand areas */
+.hand-area {
+    text-align: center;
+    padding: 10px;
+}
+
+.hand-label {
+    transform: rotate(180deg); /* Dealer's perspective */
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: var(--muted-ivory);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+/* Card slots */
+.card-slot {
+    width: 70px;
+    height: 102px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Draw buttons */
+.draw-btn {
+    background: transparent;
+    border: 2px dashed rgba(255, 255, 255, 0.4);
+    color: var(--muted-ivory);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    pointer-events: none; /* Only active when .active class added by JS */
+    transition: all 0.3s ease;
+}
+
+.draw-btn.active {
+    pointer-events: auto;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.draw-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-style: solid;
+}
+
+.draw-text {
+    font-size: 0.7em;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.action-btn {
+    flex: 1;
+    max-width: 120px;
+    padding: 12px 8px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid var(--primary-light);
+    border-radius: 8px;
+    background: var(--primary-darker);
+    color: var(--text-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 45px;
+}
+
+.action-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:active {
+    transform: translateY(1px);
+}
+
+.stand-btn {
+    background: var(--primary-darker);
+}
+
+.decision-btn {
+    background: var(--primary-darker);
+}
+
+/* Middle controls */
+.middle-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.control-btn {
+    flex: 1;
+    max-width: 150px;
+    padding: 15px 10px;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid var(--primary-light);
+    border-radius: 10px;
+    background: var(--primary-darker);
+    color: var(--text-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 55px;
+}
+
+.control-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Bottom controls */
+.bottom-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(78, 78, 80, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    padding: 10px 15px;
+    gap: 10px;
+    border-top: 1px solid var(--primary-light);
+    z-index: 998;
+}
+
+.bottom-btn {
+    flex: 1;
+    padding: 12px 8px;
+    font-size: 0.9em;
+    background: var(--primary-medium);
+    color: var(--text-white);
+    border: 1px solid var(--primary-light);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-height: 45px;
+}
+
+.bottom-btn:hover {
+    background: var(--primary-light);
+}
+
+.bottom-btn i {
+    font-size: 0.8em;
+}
+
+/* Floating buttons */
+.floating-btn {
+    position: fixed;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-medium);
+    color: var(--text-white);
+    border: 2px solid var(--primary-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 997;
+}
+
+.help-btn {
+    bottom: 130px;
+}
+
+.rules-btn {
+    bottom: 70px;
+}
+
+.floating-btn:hover {
+    background: var(--primary-light);
+    transform: scale(1.1);
+}
+
+/* Overlays */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.overlay.show {
+    display: flex;
+}
+
+.overlay-content {
+    background: var(--primary-dark);
+    border-radius: 15px;
+    max-width: 90vw;
+    max-height: 80vh;
+    width: 100%;
+    border: 2px solid var(--primary-light);
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--primary-light);
+}
+
+.overlay-header h3 {
+    color: var(--muted-ivory);
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--muted-ivory);
+    font-size: 1.5em;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.overlay-body {
+    padding: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.overlay-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+.overlay-body li {
+    margin-bottom: 8px;
+    color: var(--muted-ivory);
+    line-height: 1.4;
+}
+
+.overlay-body li strong {
+    color: var(--text-white);
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Responsive adjustments for very small screens */
+@media screen and (max-width: 350px) {
+    .card-slot {
+        width: 60px;
+        height: 87px;
+    }
+    
+    .action-btn, .control-btn {
+        font-size: 0.8em;
+        padding: 10px 6px;
+    }
+    
+    .hand-label {
+        font-size: 1.1em;
+    }
+    
+    .score-display {
+        font-size: 0.75em;
+        padding: 4px 8px;
+    }
+}
+
+/* Success/Error feedback states */
+.correct {
+    color: var(--success-color) !important;
+}
+
+.incorrect {
+    color: var(--error-color) !important;
+}
